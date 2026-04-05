@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>לוג גרסאות - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link active">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>לוג גרסאות</h1>
+        <p class="subtitle">כל השינויים מתועדים כאן בסדר כרונולוגי הפוך (החדש ביותר למעלה).</p>
+      </div>
+
+      <!-- v0.1.0-alpha -->
+      <section>
+        <h2 dir="ltr" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+          v0.1.0-alpha
+          <span class="version-badge in-progress">נוכחית</span>
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;" dir="ltr">2026-04-03 &rarr; 2026-04-05</p>
+
+        <!-- Cloner -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">05/04/2026</span>
+            &mdash; Cloner System
+          </div>
+          <ul>
+            <li>מערכת Cloner לאורך ה-frame path - live, בלי Apply</li>
+            <li>תמיכה ב-multiple sources (iterate mode)</li>
+            <li>Step effectors: סיבוב ו-scale מצטברים per clone</li>
+            <li>Random effectors: position, rotation, scale, spacing, Z, seed</li>
+            <li>Flip alternate mode</li>
+          </ul>
+        </div>
+
+        <!-- Spline -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">05/04/2026</span>
+            &mdash; Spline Frame System
+          </div>
+          <ul>
+            <li>מסגרות בצורות: Rectangle, Circle, Ellipse, Polygon (3-12), Freehand</li>
+            <li>SplineExtruder - profile extrusion לאורך curve</li>
+            <li>Beam + Miter Cut לצורות מצולעות (חיתוך בזווית מדויקת)</li>
+            <li>Freehand path drawing canvas עם smooth slider</li>
+            <li>Back plate בצורת ה-path (shrunk inward)</li>
+            <li>Back Overlap control</li>
+          </ul>
+        </div>
+
+        <!-- Profile Editor -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">04/04/2026</span>
+            &mdash; Profile Editor
+          </div>
+          <ul>
+            <li>Profile Editor עם tab ייעודי</li>
+            <li>Freehand draw mode + Edit Points mode</li>
+            <li>6 presets: Flat, Ogee, Round, Bevel, Scoop, Step</li>
+            <li>Chaikin smoothing (0-5 levels) - base preserved</li>
+            <li>Shift key = straight lines at 45&deg;/90&deg;</li>
+            <li>שינויים live (ללא Apply button)</li>
+            <li>Clear button</li>
+          </ul>
+        </div>
+
+        <!-- Symmetry + Corners -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">04/04/2026</span>
+            &mdash; Symmetry + Corners
+          </div>
+          <ul>
+            <li>Symmetry Mirror: None / Left&#8596;Right / Top&#8596;Bottom / Quarter</li>
+            <li>Live mirror rendering (ghost clones ב-FrameScene)</li>
+            <li>Corner Settings: None / Square / Circle / Triangle / Hex / Oct / Ellipse</li>
+            <li>Corner size slider</li>
+          </ul>
+        </div>
+
+        <!-- Model Import -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">03/04/2026</span>
+            &mdash; Model Import + Primitives
+          </div>
+          <ul>
+            <li>Import: STL, OBJ, GLTF/GLB, PLY</li>
+            <li>Auto-scale to 60% of picture height</li>
+            <li>Primitives: Cube, Sphere, Cylinder, Cone, Torus</li>
+            <li>DecorationPanel: Position/Rotation/Scale + Quick Rotation buttons</li>
+            <li>Drag-to-scrub on axis labels</li>
+          </ul>
+        </div>
+
+        <!-- CSG System -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">03/04/2026</span>
+            &mdash; CSG System
+          </div>
+          <ul>
+            <li>manifold-3d WASM integration</li>
+            <li>Dual-engine: manifold-3d (watertight) &rarr; three-bvh-csg (fallback)</li>
+            <li>Split by plane (TrimByPlane + subtract approach)</li>
+            <li>Boolean union/subtract/intersect</li>
+            <li>Connector generators: snap-fit, dovetail, pin-hole, mortise-tenon</li>
+          </ul>
+          <div class="info-box warning" style="margin-top: var(--spacing-sm);">
+            <div class="info-box-title">ידוע</div>
+            <p>Split ו-Boolean ops שבורים ברוב המקרים בגלל non-manifold geometry</p>
+          </div>
+        </div>
+
+        <!-- Viewport -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">03/04/2026</span>
+            &mdash; Viewport + Rendering
+          </div>
+          <ul>
+            <li>Matcap clay render (programmatic texture, no HDRI dependency)</li>
+            <li>Wireframe overlay (toggle, black lines)</li>
+            <li><code>frameloop="demand"</code> - no flickering</li>
+            <li>Static grid (LineSegments, no shader)</li>
+            <li>Build volume ghost</li>
+            <li>TransformGizmo attached by userData.partId</li>
+          </ul>
+        </div>
+
+        <!-- Foundation -->
+        <div class="card">
+          <div class="card-title" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+            <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-english);" dir="ltr">03/04/2026</span>
+            &mdash; Foundation (Phase 1)
+          </div>
+          <ul>
+            <li>Electron + electron-vite + React 19 + TypeScript scaffold</li>
+            <li>Core type system: PartNode, PartTree, ConnectorSlot</li>
+            <li>Zustand stores: Project, Selection, Tool, Render</li>
+            <li>Undo middleware (Immer patches - written, not connected)</li>
+            <li>UI: AppLayout, Toolbar, StatusBar, PartTreePanel, PropertiesPanel</li>
+            <li>Keyboard shortcuts: W/E/R/Q/V/Z/Escape/Delete/H</li>
+            <li>Part tree: select, visibility toggle, delete, expand/collapse</li>
+            <li>Frame generator: parametric dimensions + profile</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

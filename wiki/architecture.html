@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* LTR overrides for English page */
+    body { direction: ltr; font-family: var(--font-english); }
+    .sidebar { border-left: none; border-right: 1px solid var(--border-color); right: auto; left: 0; }
+    .main-content { margin-right: 0; margin-left: 260px; }
+    .info-box { border-right: none; border-left: 3px solid; }
+    .info-box.warning { border-color: var(--accent-orange); }
+    .info-box.note { border-color: var(--accent-blue); }
+    ul, ol { padding-right: 0; padding-left: var(--spacing-xl); }
+    .layer-content { padding-right: 0; padding-left: var(--spacing-lg); border-right: none; border-left: 2px solid var(--border-subtle); }
+    @media (max-width: 768px) { .main-content { margin-left: 0; } }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle" style="direction: rtl; text-align: right;">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניווט</div>
+        <a href="index.html" class="nav-link" style="direction: rtl;">סקירה כללית</a>
+        <a href="features.html" class="nav-link" style="direction: rtl;">פיצ'רים</a>
+        <a href="guide.html" class="nav-link" style="direction: rtl;">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link active" style="direction: rtl;">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link" style="direction: rtl;">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link" style="direction: rtl;">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link" style="direction: rtl;">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link" style="direction: rtl;">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title" style="direction: rtl; text-align: right;">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>Architecture</h1>
+        <p class="subtitle">System overview, directory structure, data flow, and key design decisions for the 3D Picture Frame Designer.</p>
+      </div>
+
+      <!-- System Overview -->
+      <section>
+        <h2>System Overview</h2>
+        <pre><code>┌───────────────────────────────────────────────────────┐
+│                  Electron Main Process                 │
+│   File I/O │ Native Menus │ Window │ Printer Profiles  │
+└─────────────────────┬─────────────────────────────────┘
+                      │ IPC (contextBridge)
+┌─────────────────────┴─────────────────────────────────┐
+│                  Renderer Process                      │
+│                                                        │
+│  ┌─────────────┐  ┌────────────────────────────────┐  │
+│  │  React UI   │  │   Three.js / R3F Scene         │  │
+│  │  (Panels,   │  │   (Viewport, Gizmos,           │  │
+│  │   Toolbar)  │  │    Matcap, Cloner)             │  │
+│  └──────┬──────┘  └───────────┬────────────────────┘  │
+│         │                     │                        │
+│  ┌──────┴─────────────────────┴────────────────────┐  │
+│  │              Zustand Stores                      │  │
+│  │  Project │ Selection │ Tool │ Render │ Cloner    │  │
+│  └──────────────────┬──────────────────────────────┘  │
+│                     │                                  │
+│  ┌──────────────────┴──────────────────────────────┐  │
+│  │         Core Geometry Engine (pure TS)           │  │
+│  │  FramePath │ SplineExtruder │ FrameGenerator    │  │
+│  │  SplineCloner │ ManifoldAdapter │ CSGOps        │  │
+│  └─────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────┘</code></pre>
+      </section>
+
+      <!-- Directory Structure -->
+      <section>
+        <h2>Directory Structure</h2>
+        <pre><code>src/
+├── main/                    Electron main process
+│   └── index.ts             IPC handlers, window, menus
+├── preload/
+│   └── index.ts             contextBridge API
+└── renderer/src/
+    ├── App.tsx              Root + ErrorBoundary
+    ├── main.tsx             Entry point
+    ├── core/                Geometry engine (NO React imports)
+    │   ├── types.ts         PartNode, profiles, paths, all types
+    │   ├── PartTree.ts      Tree traversal utilities
+    │   ├── parametric/
+    │   │   ├── FrameGenerator.ts   Beam+miter for polygon, spline for curves
+    │   │   ├── FramePath.ts        Path builders (rect, circle, polygon, etc.)
+    │   │   ├── FrameProfile.ts     Profile presets (Ogee, Round, etc.)
+    │   │   ├── ProfileExtruder.ts  Profile-to-shape conversion
+    │   │   ├── SplineExtruder.ts   Profile extrusion along curves
+    │   │   └── SplineCloner.ts     Clone transforms along path
+    │   ├── csg/
+    │   │   ├── ManifoldAdapter.ts  Three.js ↔ manifold-3d bridge
+    │   │   └── CSGOperations.ts    Dual-engine boolean ops
+    │   ├── connectors/
+    │   │   └── ConnectorGenerator.ts  4 connector types
+    │   ├── splitting/
+    │   │   ├── SplitPlane.ts       Auto-split calculation
+    │   │   └── AutoSplitter.ts     Split + connector insertion
+    │   ├── decoration/
+    │   │   ├── BasReliefGenerator.ts   Raycast heightmap (not connected)
+    │   │   └── CookieCutterGenerator.ts  Silhouette extrusion
+    │   └── templates/
+    │       └── TemplateRegistry.ts     5 frame presets
+    ├── store/
+    │   ├── useProjectStore.ts    Central state (parts, dims, profile)
+    │   ├── useSelectionStore.ts  Selection state
+    │   ├── useToolStore.ts       Active tool, toggles
+    │   ├── useRenderStore.ts     Render mode
+    │   ├── useClonerStore.ts     Cloner parameters
+    │   ├── useSplitPreviewStore.ts  Split preview planes
+    │   ├── useFrameInit.ts       Frame generation + regeneration
+    │   └── undoMiddleware.ts     Immer patches (not connected)
+    ├── scene/
+    │   ├── Viewport.tsx          R3F Canvas, demand rendering
+    │   ├── FrameScene.tsx        Parts + mirrors + cloner instances
+    │   ├── PartMesh.tsx          Matcap material + wireframe
+    │   ├── TransformGizmo.tsx    W/E/R gizmo by partId
+    │   ├── BuildVolumeGhost.tsx  Printer volume wireframe
+    │   └── SplitPlaneVisual.tsx  Orange split planes
+    ├── rendering/
+    │   └── MaterialLibrary.ts    10 filament presets
+    ├── io/
+    │   └── importers/
+    │       └── ModelImporter.ts  STL/OBJ/GLTF/PLY parser
+    ├── ui/
+    │   ├── layout/
+    │   │   ├── AppLayout.tsx     Tab-based layout
+    │   │   ├── Toolbar.tsx       Tool buttons + primitives dropdown
+    │   │   └── StatusBar.tsx     Stats + manifold check
+    │   ├── panels/
+    │   │   ├── ProfileEditor.tsx     Profile + shape + symmetry + corners
+    │   │   ├── PropertiesPanel.tsx   Dimensions + transform + material
+    │   │   ├── DecorationPanel.tsx   Decoration controls + cloner
+    │   │   ├── PartTreePanel.tsx     Hierarchical tree
+    │   │   └── SplitPanel.tsx        Split tool UI
+    │   └── useKeyboardShortcuts.ts   Global hotkeys
+    └── workers/                 (empty - planned for CSG workers)</code></pre>
+      </section>
+
+      <!-- Data Flow -->
+      <section>
+        <h2>Data Flow</h2>
+
+        <h3>Frame Generation</h3>
+        <pre><code>User changes dimension/profile/path
+        │
+        ▼
+useFrameInit (React hook, outside Canvas)
+  - Computes JSON hash of all frame-affecting state
+  - If changed: calls generateFrame()
+        │
+        ▼
+FrameGenerator.generateFrame()
+  - Polygon path? → buildMiteredBeam() per edge
+  - Smooth path?  → SplineExtruder.extrudeProfileAlongPath()
+  - Builds back plate from shrunk path
+  - Returns { parts: PartNode[], geometries: Map }
+        │
+        ▼
+useProjectStore.setState({ parts, meshCache })
+        │
+        ▼
+FrameScene (inside Canvas)
+  - Subscribes to parts + meshCache
+  - useEffect → invalidate() → Canvas re-renders
+  - Renders PartMesh for each visible part
+  - Renders symmetry mirror ghosts
+  - Renders cloner instances</code></pre>
+
+        <h3>Cloner Data Flow</h3>
+        <pre><code>User adjusts slider in DecorationPanel
+        │
+        ▼
+useClonerStore.set({ count: 12, ... })
+        │
+        ▼
+FrameScene (subscribes to cloner store)
+  - useMemo: computeCloneTransforms(pathPoints, settings)
+  - Returns Matrix4[] for each clone position
+        │
+        ▼
+Render: cloneMatrices.map((matrix, i) =&gt;
+  &lt;mesh geometry={sources[i % sources.length]} matrix={matrix} /&gt;
+)</code></pre>
+      </section>
+
+      <!-- Key Design Decisions -->
+      <section>
+        <h2>Key Design Decisions</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr>
+            <tr><td>CSG engine</td><td>manifold-3d + three-bvh-csg</td><td>Manifold guarantees watertight. BVH handles non-manifold input as fallback.</td></tr>
+            <tr><td>State management</td><td>Zustand + Immer</td><td>Standard for R3F apps. No Provider wrapper. Works outside Canvas.</td></tr>
+            <tr><td>Rendering</td><td>Matcap (no lights)</td><td>Reliable in Electron. No HDRI dependency. No flickering.</td></tr>
+            <tr><td>Frame loop</td><td>demand</td><td>Renders only when invalidate() called. Prevents flickering.</td></tr>
+            <tr><td>Frame construction</td><td>Beam + miter cut</td><td>Matches real-world frame making. Clean corners.</td></tr>
+            <tr><td>Profile storage</td><td>Normalized 0-1 points</td><td>Scale-independent. Works with any frame width/depth.</td></tr>
+            <tr><td>Cloner</td><td>Live rendering, no bake</td><td>Like C4D MoGraph. Instant feedback. Bake as future option.</td></tr>
+            <tr><td>Inline styles</td><td>All CSS inline</td><td>Tailwind CSS didn't load in Electron. Inline is reliable.</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Core Constraint -->
+      <section>
+        <h2>Core Constraint</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">Critical Rule</div>
+          <p><strong>core/ directory must NEVER import React, R3F, or any UI code.</strong> It operates on plain TypeScript types and Three.js math/geometry only. This enables testing without DOM and running in Web Workers.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

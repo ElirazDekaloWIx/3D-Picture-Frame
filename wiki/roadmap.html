@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תוכנית עבודה - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link active">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>תוכנית עבודה</h1>
+        <p class="subtitle">סדר עדיפויות הפיתוח - מה עכשיו, מה בתור, ומה בעתיד.</p>
+      </div>
+
+      <!-- Now -->
+      <section>
+        <h2>Now - מה שעובדים עליו</h2>
+        <div class="card">
+          <div class="card-title">שיפור מערכת ה-Spline Frames</div>
+          <ul>
+            <li>תיקון back plate לצורות freehand</li>
+            <li>SVG import לצורת מסגרת</li>
+            <li>Profile editor - שיפור UX</li>
+            <li>Corners מותאמים לצורות מצולעות</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Next -->
+      <section>
+        <h2>Next - בתור</h2>
+        <div class="phases-grid">
+          <div class="phase-card">
+            <div class="phase-number">CRITICAL</div>
+            <div class="phase-title">תיקון CSG System</div>
+            <div class="phase-desc">תיקון מערכת ה-Boolean operations (Merge, Split, Cookie Cut). הבעיה: רוב המודלים (כולל המסגרת) לא manifold. הפתרון: retopology pipeline + dual-engine CSG.</div>
+            <span class="status-indicator in-progress">&#9675; קריטי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">IMPORTANT</div>
+            <div class="phase-title">Export STL</div>
+            <div class="phase-desc">היכולת לייצא קבצי STL להדפסה. הפיצ'ר הכי נדרש כרגע.</div>
+            <span class="status-indicator pending">&#9675; חשוב</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">IMPORTANT</div>
+            <div class="phase-title">Save / Load Projects</div>
+            <div class="phase-desc">שמירת וטעינת פרויקטים בפורמט .3dpf. JSON metadata + binary meshes.</div>
+            <span class="status-indicator pending">&#9675; חשוב</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">IMPORTANT</div>
+            <div class="phase-title">Undo / Redo</div>
+            <div class="phase-desc">חיבור ה-undo middleware שכבר כתוב ל-Zustand store. Ctrl+Z / Ctrl+Shift+Z.</div>
+            <span class="status-indicator pending">&#9675; חשוב</span>
+          </div>
+        </div>
+
+        <div class="info-box note">
+          <div class="info-box-title">CSG Fix Details</div>
+          <ul>
+            <li>ManifoldAdapter - MeshGL.merge() pipeline</li>
+            <li>Frame geometry validation at generation time</li>
+            <li>three-bvh-csg fallback for imported models</li>
+            <li>Fix Split coordinate space</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Later -->
+      <section>
+        <h2>Later - בעתיד</h2>
+        <div class="phases-grid">
+          <div class="phase-card">
+            <div class="phase-number">PHASE 5</div>
+            <div class="phase-title">Advanced Rendering</div>
+            <div class="phase-desc">Material Library (PLA, Wood, Silk, Marble, Carbon), HDRI environments, Path tracer, Render capture.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">PHASE 6</div>
+            <div class="phase-title">Production Pipeline</div>
+            <div class="phase-desc">3MF export (multi-part), Assembly guide PDF, Print settings recommendations, Slicer integration.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">ADVANCED</div>
+            <div class="phase-title">Spline Cloner Advanced</div>
+            <div class="phase-desc">Spline effector, Shader effector, Delay/spring effector, Fuse/merge clones, Nested cloners.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">FEATURE</div>
+            <div class="phase-title">SVG Frame Path</div>
+            <div class="phase-desc">Import SVG file as frame outline, Parse SVG path data, Support bezier curves, Scale/fit.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">FEATURE</div>
+            <div class="phase-title">Bas-Relief System</div>
+            <div class="phase-desc">Raycast heightmap generator, Gaussian blur + contrast, Displacement mesh, CSG union.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-number">FEATURE</div>
+            <div class="phase-title">Multi-language</div>
+            <div class="phase-desc">Hebrew UI (RTL), English UI, i18n system.</div>
+            <span class="status-indicator pending">&#9675; עתידי</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Out of Scope -->
+      <section>
+        <h2>Out of Scope (v1)</h2>
+        <div class="card">
+          <ul>
+            <li>Resin/SLA printer support</li>
+            <li>Multi-color printing</li>
+            <li>Cloud sync / collaboration</li>
+            <li>Marketplace for frame designs</li>
+            <li>AI-generated decorations</li>
+            <li>Direct slicer integration</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

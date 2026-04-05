@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פיצ'רים - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link active">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>פיצ'רים</h1>
+        <p class="subtitle">רשימת כל היכולות של המערכת - צורות מסגרת, עורך פרופיל, שכפולים, ייבוא, ועוד.</p>
+      </div>
+
+      <!-- Frame Shapes -->
+      <section>
+        <h2>צורות מסגרת</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Shape</th><th>Method</th><th>Status</th><th>Details</th></tr>
+            <tr><td>▭ Rectangle</td><td>Beam + Miter 45&deg;</td><td><span class="version-badge completed">works</span></td><td>4 straight beams, angled cuts, sharp corners</td></tr>
+            <tr><td>○ Circle</td><td>SplineExtruder</td><td><span class="version-badge completed">works</span></td><td>CatmullRomCurve3, 128 segments, smooth</td></tr>
+            <tr><td>⬮ Ellipse</td><td>SplineExtruder</td><td><span class="version-badge completed">works</span></td><td>Separate radiusX / radiusY</td></tr>
+            <tr><td>⬡ Polygon</td><td>Beam + Miter</td><td><span class="version-badge completed">works</span></td><td>3-12 sides, miter angle = exteriorAngle/2</td></tr>
+            <tr><td>〰 Freehand</td><td>SplineExtruder</td><td><span class="version-badge completed">works</span></td><td>Canvas draw + Chaikin smooth</td></tr>
+            <tr><td>SVG Import</td><td>-</td><td><span class="version-badge pending">planned</span></td><td>Parse SVG path &rarr; control points</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Profile Editor -->
+      <section>
+        <h2>Profile Editor</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Feature</th><th>Status</th><th>Details</th></tr>
+            <tr><td>Edit Points</td><td><span class="version-badge completed">works</span></td><td>Click = add, Drag = move, Double-click = delete</td></tr>
+            <tr><td>Freehand Draw</td><td><span class="version-badge completed">works</span></td><td>Press and drag to draw freehand</td></tr>
+            <tr><td>Shift Snap</td><td><span class="version-badge completed">works</span></td><td>45&deg;/90&deg; angles while drawing/dragging</td></tr>
+            <tr><td>Chaikin Smooth</td><td><span class="version-badge completed">works</span></td><td>0-5 levels, base (y=1) preserved</td></tr>
+            <tr><td>6 Presets</td><td><span class="version-badge completed">works</span></td><td>Flat, Ogee, Round, Bevel, Scoop, Step</td></tr>
+            <tr><td>Live Update</td><td><span class="version-badge completed">works</span></td><td>Changes update immediately on the frame</td></tr>
+            <tr><td>Clear</td><td><span class="version-badge completed">works</span></td><td>Reset to Flat</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Cloner -->
+      <section>
+        <h2>Cloner</h2>
+
+        <h3>Distribution</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Parameter</th><th>Range</th><th>Description</th></tr>
+            <tr><td>Count</td><td>1 - 60</td><td>Number of clones along the path</td></tr>
+            <tr><td>Offset</td><td>-60 &mdash; +60</td><td>Distance from path axis (mm)</td></tr>
+            <tr><td>Z Offset</td><td>-30 &mdash; +30</td><td>Depth offset</td></tr>
+          </table>
+        </div>
+
+        <h3>Transform</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Parameter</th><th>Range</th><th>Description</th></tr>
+            <tr><td>Rotate</td><td>0&deg; - 360&deg;</td><td>Base rotation for each clone</td></tr>
+            <tr><td>Scale</td><td>0.1 - 3.0</td><td>Uniform scale</td></tr>
+          </table>
+        </div>
+
+        <h3>Step Effectors</h3>
+        <p>Cumulative per clone:</p>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Parameter</th><th>Range</th><th>Description</th></tr>
+            <tr><td>Rot+</td><td>0&deg; - 90&deg;</td><td>Each clone rotates X&deg; more than the previous</td></tr>
+            <tr><td>Scale+</td><td>-0.1 &mdash; +0.1</td><td>Each clone grows/shrinks from the previous</td></tr>
+            <tr><td>Flip Alt</td><td>on/off</td><td>Every other clone is flipped</td></tr>
+          </table>
+        </div>
+
+        <h3>Random Effectors</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Parameter</th><th>Range</th><th>Description</th></tr>
+            <tr><td>Seed</td><td>1 - 999</td><td>Change seed = different result</td></tr>
+            <tr><td>Spacing</td><td>0 - 1</td><td>Non-uniform distribution along path</td></tr>
+            <tr><td>Pos</td><td>0 - 20mm</td><td>Position jitter (outward)</td></tr>
+            <tr><td>Rot</td><td>0&deg; - 180&deg;</td><td>Rotation jitter</td></tr>
+            <tr><td>Scale</td><td>0 - 1</td><td>Scale jitter</td></tr>
+            <tr><td>Z</td><td>0 - 15mm</td><td>Depth jitter</td></tr>
+          </table>
+        </div>
+
+        <h3>Multi-Source (Iterate)</h3>
+        <div class="info-box tip">
+          <div class="info-box-title">Iterate Mode</div>
+          <p>ניתן להוסיף מספר sources - העותקים מתחלפים ביניהם ברצף (A, B, C, A, B, C...).</p>
+        </div>
+      </section>
+
+      <!-- Symmetry Mirror -->
+      <section>
+        <h2>Symmetry Mirror</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Mode</th><th>Description</th><th>Usage</th></tr>
+            <tr><td>None</td><td>No mirroring</td><td>Default</td></tr>
+            <tr><td>&#8596; Left=Right</td><td>Left &#8596; Right</td><td>Horizontal symmetry</td></tr>
+            <tr><td>&#8597; Top=Bottom</td><td>Top &#8596; Bottom</td><td>Vertical symmetry</td></tr>
+            <tr><td>&frac14; Quarter</td><td>4 identical quadrants</td><td>Full symmetry</td></tr>
+          </table>
+        </div>
+        <p>Decorations placed on the frame are mirrored automatically in real time. <strong>Break Symmetry</strong> cancels and returns to None.</p>
+      </section>
+
+      <!-- Import + Primitives -->
+      <section>
+        <h2>Import + Primitives</h2>
+
+        <h3>Import</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Format</th><th>Extension</th><th>Loader</th></tr>
+            <tr><td>STL (Binary/ASCII)</td><td>.stl</td><td>Three.js STLLoader</td></tr>
+            <tr><td>Wavefront OBJ</td><td>.obj</td><td>Three.js OBJLoader</td></tr>
+            <tr><td>GLTF / GLB</td><td>.gltf, .glb</td><td>Three.js GLTFLoader</td></tr>
+            <tr><td>PLY</td><td>.ply</td><td>Three.js PLYLoader</td></tr>
+          </table>
+        </div>
+
+        <h3>Primitives</h3>
+        <p>5 basic shapes available via the <strong>+ Prim</strong> button:</p>
+        <div class="phases-grid">
+          <div class="card"><div class="card-title">Cube</div><p>קובייה</p></div>
+          <div class="card"><div class="card-title">Sphere</div><p>כדור (24 segments)</p></div>
+          <div class="card"><div class="card-title">Cylinder</div><p>גליל</p></div>
+          <div class="card"><div class="card-title">Cone</div><p>חרוט</p></div>
+          <div class="card"><div class="card-title">Torus</div><p>טבעת</p></div>
+        </div>
+      </section>
+
+      <!-- Viewport + Rendering -->
+      <section>
+        <h2>Viewport + Rendering</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Feature</th><th>Details</th></tr>
+            <tr><td>Matcap Clay Render</td><td>Procedural 512x512 matcap texture, studio lighting baked in</td></tr>
+            <tr><td>Wireframe Overlay</td><td>Black, toneMapped=false, toggle with Z</td></tr>
+            <tr><td>Demand Rendering</td><td>frameloop="demand" - renders only when something changes</td></tr>
+            <tr><td>OrbitControls</td><td>Middle-drag orbit, Shift+Middle pan, Scroll zoom</td></tr>
+            <tr><td>Navigation Gizmo</td><td>GizmoViewport (top-right) - RGB axes</td></tr>
+            <tr><td>Transform Gizmo</td><td>TransformControls attached by userData.partId</td></tr>
+            <tr><td>Selection</td><td>Click = select, Ctrl+Click = toggle, blue matcap + wireframe</td></tr>
+            <tr><td>Grid</td><td>Static LineSegments (toggle)</td></tr>
+            <tr><td>Build Volume</td><td>Wireframe box 256x256x256mm (toggle)</td></tr>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

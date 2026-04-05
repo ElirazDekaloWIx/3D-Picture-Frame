@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדריך שימוש - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link active">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>מדריך שימוש</h1>
+        <p class="subtitle">הסבר מלא על מבנה המסך, קיצורי מקלדת, ו-How-To לכל פעולה במערכת.</p>
+      </div>
+
+      <!-- Layout -->
+      <section>
+        <h2>מבנה המסך</h2>
+        <pre><code>┌──────────────────────────────────────────────────────────┐
+│  Toolbar: New Open Save │ Select Move Rotate Scale │ ... │
+├─────────┬────────────────────────────────┬───────────────┤
+│         │                                │  [Profile]    │
+│  Part   │       3D Viewport              │  [Properties] │
+│  Tree   │                                │               │
+│         │                                │  Frame Shape  │
+│         │                                │  Presets      │
+│         │                                │  Canvas       │
+│         │                                │  Smooth       │
+│         │                                │  Symmetry     │
+│         │                                │  Corners      │
+├─────────┴────────────────────────────────┴───────────────┤
+│  Status: Parts │ Verts │ Faces │ Manifold │ Printer      │
+└──────────────────────────────────────────────────────────┘</code></pre>
+        <div class="info-box note">
+          <div class="info-box-title">אזורי המסך</div>
+          <ul>
+            <li><strong>שמאל</strong> - Part Tree: עץ חלקים עם selection, visibility, delete</li>
+            <li><strong>מרכז</strong> - 3D Viewport: תצוגת המסגרת</li>
+            <li><strong>ימין</strong> - שני tabs: Profile (עיצוב) ו-Properties (מידות)</li>
+            <li><strong>למטה</strong> - Status Bar: סטטיסטיקות</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Keyboard -->
+      <section>
+        <h2>קיצורי מקלדת</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Key</th><th>Action</th></tr>
+            <tr><td><code>W</code></td><td>Position (Move) - הזזה</td></tr>
+            <tr><td><code>E</code></td><td>Scale - שינוי גודל</td></tr>
+            <tr><td><code>R</code></td><td>Rotate - סיבוב</td></tr>
+            <tr><td><code>Q</code></td><td>Toggle Gizmo - הפעל/כבה גיזמו</td></tr>
+            <tr><td><code>V</code></td><td>Select - מצב בחירה</td></tr>
+            <tr><td><code>Z</code></td><td>Toggle Wireframe</td></tr>
+            <tr><td><code>Escape</code></td><td>ביטול בחירה + חזרה ל-Select</td></tr>
+            <tr><td><code>Delete</code></td><td>מחיקת חלק נבחר</td></tr>
+            <tr><td><code>H</code></td><td>הסתרת חלק נבחר</td></tr>
+            <tr><td><code>Shift+H</code></td><td>הצגת כל החלקים</td></tr>
+            <tr><td><code>Ctrl+A</code></td><td>בחירת הכל</td></tr>
+          </table>
+        </div>
+
+        <h3>ניווט ב-Viewport</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Action</th><th>Mouse</th></tr>
+            <tr><td>Orbit (סיבוב מצלמה)</td><td>Middle-drag / Alt+Left-drag</td></tr>
+            <tr><td>Pan (הזזה)</td><td>Shift+Middle-drag</td></tr>
+            <tr><td>Zoom</td><td>Scroll wheel</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Tutorials -->
+      <section>
+        <h2>How-To</h2>
+
+        <h3>יצירת מסגרת בסיסית</h3>
+        <div class="card">
+          <ol>
+            <li>פתח את האפליקציה - מסגרת מלבנית מופיעה אוטומטית</li>
+            <li>עבור ל-tab <strong>Properties</strong> (ימין למעלה)</li>
+            <li>שנה <strong>Picture Size</strong>: W ו-H (ברירת מחדל 200x300mm)</li>
+            <li>שנה <strong>Frame Width</strong> (רוחב המסגרת, ברירת מחדל 40mm)</li>
+            <li>שנה <strong>Frame Depth</strong> (עומק/עובי, ברירת מחדל 20mm)</li>
+            <li>המסגרת מתעדכנת בזמן אמת</li>
+          </ol>
+        </div>
+
+        <h3>שינוי צורת מסגרת</h3>
+        <div class="card">
+          <ol>
+            <li>עבור ל-tab <strong>Profile</strong> (ימין למעלה)</li>
+            <li>תחת <strong>Frame Shape</strong> בחר:
+              <ul>
+                <li><strong>▭ Rectangle</strong> - מלבן רגיל</li>
+                <li><strong>○ Circle</strong> - עיגול</li>
+                <li><strong>⬮ Ellipse</strong> - אליפסה</li>
+                <li><strong>⬡ Polygon</strong> - מצולע (3-12 צלעות)</li>
+                <li><strong>〰 Freehand</strong> - ציור חופשי</li>
+              </ul>
+            </li>
+            <li>המסגרת משתנה מיד</li>
+          </ol>
+        </div>
+
+        <h3>ציור פרופיל (חתך) מותאם אישית</h3>
+        <div class="card">
+          <ol>
+            <li>ב-tab <strong>Profile</strong>, מתחת ל-<strong>Presets</strong> בחר נקודת התחלה (Flat/Ogee/etc.) או <strong>Clear</strong></li>
+            <li>בחר <strong>Mode</strong>:
+              <ul>
+                <li><strong>Edit Points</strong> - לחץ להוסיף נקודה, גרור להזיז, double-click למחוק</li>
+                <li><strong>Freehand Draw</strong> - לחץ וגרור לצייר קו חופשי</li>
+              </ul>
+            </li>
+            <li>החזק <strong>Shift</strong> בזמן ציור/גרירה לקווים ב-45&deg;/90&deg;</li>
+            <li>כוונן את <strong>Smooth</strong> slider (0 = חד, 5 = חלק מאוד)</li>
+            <li>הפרופיל מתעדכן על המסגרת בזמן אמת</li>
+          </ol>
+          <div class="info-box tip">
+            <div class="info-box-title">מערכת צירים</div>
+            <p>
+              <strong>ציר אופקי</strong> = inner edge (שמאל) &rarr; outer edge (ימין)<br>
+              <strong>ציר אנכי</strong> = front face (למעלה) &rarr; back face (למטה)<br>
+              <strong>הבסיס (קו תחתון)</strong> נשאר קבוע תמיד - לא משתנה מ-smooth
+            </p>
+          </div>
+        </div>
+
+        <h3>ציור מסגרת חופשית</h3>
+        <div class="card">
+          <ol>
+            <li>ב-<strong>Frame Shape</strong> בחר <strong>〰 Freehand</strong></li>
+            <li>מופיע canvas ציור - לחץ וגרור לצייר את קו המתאר של המסגרת</li>
+            <li>כוונן <strong>Smooth</strong> slider להחלקת הצורה</li>
+            <li><strong>Clear</strong> למחיקה והתחלה מחדש</li>
+          </ol>
+        </div>
+
+        <h3>ייבוא מודל תלת-מימדי</h3>
+        <div class="card">
+          <ol>
+            <li>לחץ <strong>Import</strong> ב-Toolbar</li>
+            <li>בחר קובץ STL / OBJ / GLTF / GLB / PLY</li>
+            <li>המודל מופיע במרכז המסגרת</li>
+            <li>בחר אותו ב-Part Tree</li>
+            <li>בפאנל הימני:
+              <ul>
+                <li><strong>Position / Rotation / Scale</strong> - מיקום ידני</li>
+                <li><strong>Quick Rotation</strong> - כפתורי Front/Back/Flip/Lay</li>
+                <li><strong>Drag axis label</strong> - גרור את ה-X/Y/Z לשינוי מהיר</li>
+              </ul>
+            </li>
+            <li>או השתמש ב-<strong>Gizmo</strong>: לחץ <code>W</code> (Move), <code>R</code> (Rotate), <code>E</code> (Scale)</li>
+          </ol>
+        </div>
+
+        <h3>הוספת Primitive</h3>
+        <div class="card">
+          <ol>
+            <li>לחץ <strong>+ Prim</strong> ב-Toolbar</li>
+            <li>בחר: Cube / Sphere / Cylinder / Cone / Torus</li>
+            <li>הצורה מופיעה במסגרת</li>
+            <li>הזז עם Gizmo (<code>W</code>)</li>
+          </ol>
+        </div>
+
+        <h3>שימוש ב-Cloner</h3>
+        <div class="card">
+          <ol>
+            <li>הוסף Primitive או Import מודל</li>
+            <li>בחר אותו ב-Part Tree</li>
+            <li>בפאנל הימני (DecorationPanel) לחץ <strong>"Add to Cloner"</strong></li>
+            <li>העותקים מופיעים מיד לאורך המסגרת!</li>
+            <li>כוונן parameters:
+              <ul>
+                <li><strong>Count</strong> - כמות עותקים</li>
+                <li><strong>Offset</strong> - מרחק מהpath (פנימה/החוצה)</li>
+                <li><strong>Rotate</strong> - סיבוב בסיסי</li>
+                <li><strong>Scale</strong> - גודל</li>
+                <li><strong>Z</strong> - עומק (קדימה/אחורה)</li>
+              </ul>
+            </li>
+            <li>Step effectors (מצטבר per clone):
+              <ul>
+                <li><strong>Rot+</strong> - כל clone מסתובב עוד קצת (ספירלה)</li>
+                <li><strong>Scale+</strong> - כל clone גדל/קטן (taper)</li>
+                <li><strong>Flip Alt</strong> - כל clone שני מתהפך</li>
+              </ul>
+            </li>
+            <li>Random:
+              <ul>
+                <li><strong>Seed</strong> - מספר random אחר = תוצאה אחרת</li>
+                <li><strong>Spacing</strong> - פיזור לא-אחיד לאורך ה-path</li>
+                <li><strong>Pos / Rot / Scale / Z</strong> - jitter אקראי</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4 style="margin-top: var(--spacing-lg);">Multi-Source Cloner (Iterate Mode)</h4>
+          <ol>
+            <li>הוסף כמה primitives/models שונים</li>
+            <li>בחר כל אחד ולחץ <strong>"Add to Cloner"</strong></li>
+            <li>העותקים מתחלפים בין ה-sources ברצף (A, B, C, A, B, C...)</li>
+            <li><strong>"Remove from Cloner"</strong> - מסיר source ספציפי</li>
+            <li><strong>"Clear All"</strong> - מנקה הכל</li>
+          </ol>
+        </div>
+
+        <h3>Symmetry Mirror</h3>
+        <div class="card">
+          <ol>
+            <li>ב-tab <strong>Profile</strong>, סעיף <strong>Symmetry Mirror</strong></li>
+            <li>בחר מצב:
+              <ul>
+                <li><strong>None</strong> - ללא שיקוף</li>
+                <li><strong>&#8596; Left=Right</strong> - שמאל משוקף לימין</li>
+                <li><strong>&#8597; Top=Bottom</strong> - למעלה משוקף למטה</li>
+                <li><strong>&frac14; Quarter</strong> - רבע משוקף ל-4 פינות</li>
+              </ul>
+            </li>
+            <li>הוסף decoration - העתקי מראה מופיעים אוטומטית</li>
+            <li>הזז את המקור - המראות עוקבות בזמן אמת</li>
+            <li><strong>"Break Symmetry"</strong> - חזרה ל-None, מראות נעלמות</li>
+          </ol>
+        </div>
+
+        <h3>Wireframe Toggle</h3>
+        <div class="card">
+          <ul>
+            <li>לחץ <strong>Wire</strong> ב-Toolbar או מקש <code>Z</code></li>
+            <li>Wireframe מופיע/נעלם על כל החלקים</li>
+            <li>ברירת מחדל: ON (דלוק)</li>
+            <li>חלק נבחר - wireframe כחול, שאר - שחור שקוף</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Running -->
+      <section>
+        <h2>הרצת הפרויקט</h2>
+        <pre><code># Install dependencies
+npm install
+
+# Development mode (with HMR)
+npm run dev
+
+# Build for production
+npm run build
+
+# Run tests
+npm run test</code></pre>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

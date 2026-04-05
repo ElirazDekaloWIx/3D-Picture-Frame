@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>בעיות ידועות - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link active">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>בעיות ידועות</h1>
+        <p class="subtitle">רשימת באגים ובעיות ידועות מסודרת לפי רמת חומרה - קריטי, בינוני, נמוך, ונפתרו.</p>
+      </div>
+
+      <!-- Critical -->
+      <section>
+        <h2>קריטי</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">בעיות CSG</div>
+          <p>מערכת ה-Boolean operations (Split, Merge, Cookie Cut) שבורה ברוב המקרים בגלל non-manifold geometry.</p>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>ID</th><th>Area</th><th>Description</th><th>Status</th><th>Root Cause</th></tr>
+            <tr>
+              <td>#001</td>
+              <td>CSG</td>
+              <td>Split breaks geometry - parts scatter and flatten</td>
+              <td><span class="version-badge in-progress">open</span></td>
+              <td>Coordinate space mismatch - FrameScene adds yOffset but split results already in world space</td>
+            </tr>
+            <tr>
+              <td>#002</td>
+              <td>CSG</td>
+              <td>Boolean Merge/Cookie Cut fail - "Empty mesh data"</td>
+              <td><span class="version-badge in-progress">open</span></td>
+              <td>manifold-3d requires watertight input. Imported models not watertight. three-bvh-csg fallback also fails when no overlap</td>
+            </tr>
+            <tr>
+              <td>#003</td>
+              <td>CSG</td>
+              <td>Connector CSG fails on split - connectors not added</td>
+              <td><span class="version-badge in-progress">open</span></td>
+              <td>Connector geometry (snap-fit) too small / not manifold &rarr; CSG fails silently</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Medium -->
+      <section>
+        <h2>בינוני</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>ID</th><th>Area</th><th>Description</th><th>Status</th><th>Root Cause</th></tr>
+            <tr>
+              <td>#004</td>
+              <td>Frame</td>
+              <td>Rectangle profile - imperfect corners with complex profiles</td>
+              <td><span class="version-badge in-progress">partial</span></td>
+              <td>Beam + miter cut approach. Inner profile vertices shifted at different angles &rarr; small gap</td>
+            </tr>
+            <tr>
+              <td>#005</td>
+              <td>Frame</td>
+              <td>Freehand path - Back plate doesn't always match frame shape</td>
+              <td><span class="version-badge in-progress">partial</span></td>
+              <td>Shrink-toward-center algorithm inaccurate for concave shapes</td>
+            </tr>
+            <tr>
+              <td>#006</td>
+              <td>Import</td>
+              <td>STL models imported in wrong orientation (flipped/rotated)</td>
+              <td><span class="version-badge in-progress">workaround</span></td>
+              <td>STL format doesn't define orientation. Quick rotation buttons in DecorationPanel as workaround</td>
+            </tr>
+            <tr>
+              <td>#007</td>
+              <td>Render</td>
+              <td>Matcap shading - broken normals on custom profiled meshes</td>
+              <td><span class="version-badge in-progress">partial</span></td>
+              <td>computeVertexNormals averages normals between side faces and cap faces. Removing caps helps partially</td>
+            </tr>
+            <tr>
+              <td>#008</td>
+              <td>UI</td>
+              <td>Toolbar buttons New/Open/Save don't work</td>
+              <td><span class="version-badge pending">not implemented</span></td>
+              <td>No handlers - needs Save/Load project implementation</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Low -->
+      <section>
+        <h2>נמוך</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>ID</th><th>Area</th><th>Description</th><th>Status</th></tr>
+            <tr>
+              <td>#009</td>
+              <td>UI</td>
+              <td>Ctrl+D (duplicate) not implemented</td>
+              <td><span class="version-badge pending">not implemented</span></td>
+            </tr>
+            <tr>
+              <td>#010</td>
+              <td>UI</td>
+              <td>Tailwind CSS doesn't load in Electron - all styles inline</td>
+              <td><span class="version-badge completed">by design</span></td>
+            </tr>
+            <tr>
+              <td>#011</td>
+              <td>Performance</td>
+              <td>Cloner with 60+ instances - needs InstancedMesh</td>
+              <td><span class="version-badge pending">future</span></td>
+            </tr>
+            <tr>
+              <td>#012</td>
+              <td>Render</td>
+              <td>WebGL linewidth limited to 1px in most browsers</td>
+              <td><span class="version-badge completed">WebGL limit</span></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- Resolved -->
+      <section>
+        <h2>נפתרו</h2>
+        <div class="info-box tip">
+          <div class="info-box-title">בעיות שתוקנו</div>
+          <p>בעיות שזוהו ותוקנו במהלך הפיתוח.</p>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>ID</th><th>Description</th><th>Solution</th></tr>
+            <tr><td>#F01</td><td>Viewport flickering</td><td><code>frameloop="demand"</code> + removed ContactShadows + StaticGrid</td></tr>
+            <tr><td>#F02</td><td>Environment HDRI not loading in Electron</td><td>Switched to Matcap (no HDRI needed)</td></tr>
+            <tr><td>#F03</td><td>Duplicate parts in StrictMode</td><td>Check store state instead of module-level flag</td></tr>
+            <tr><td>#F04</td><td>TransformGizmo moves wrong parts</td><td>Mesh lookup by <code>userData.partId</code></td></tr>
+            <tr><td>#F05</td><td>Wireframe moves at different rate than mesh</td><td>Gizmo attached to parent group (contains mesh + wireframe)</td></tr>
+            <tr><td>#F06</td><td>Rectangle corners rounded in SplineExtruder</td><td>Switched to Beam + Miter Cut approach</td></tr>
+            <tr><td>#F07</td><td>Polygon miter angle incorrect</td><td>Fixed: <code>exteriorAngle / 2</code> (not <code>(&pi; - angle) / 2</code>)</td></tr>
+            <tr><td>#F08</td><td>Rectangle vs Polygon different winding order</td><td>Both CCW now</td></tr>
+            <tr><td>#F09</td><td>Thin line between beams at corners</td><td>0.1mm overlap + removed cap faces</td></tr>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

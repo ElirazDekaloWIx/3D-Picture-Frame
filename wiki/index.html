@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Picture Frame Designer - Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link active">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>3D Picture Frame Designer</h1>
+        <p class="subtitle">
+          אפליקציית דסקטופ לעיצוב מסגרות תמונה תלת-מימדיות להדפסה ב-<span class="ltr">3D Printer</span>.
+          מאפשרת עיצוב פרמטרי של צורות מסגרת, פרופילים, שכפולים ועיטורים.
+        </p>
+        <span class="version-badge in-progress" dir="ltr">v0.1.0-alpha &middot; Active Development</span>
+      </div>
+
+      <!-- Vision -->
+      <section>
+        <h2>החזון</h2>
+        <p>
+          לבנות <strong>כלי עיצוב מסגרות</strong> שמשלב את הפשטות של כלי <span class="ltr">CAD</span> פרמטרי
+          עם יכולות <strong>שכפול ו-<span class="ltr">Cloner</span></strong> בסגנון <span class="ltr">Cinema 4D MoGraph</span>,
+          וייצוא ישיר לקבצי <span class="ltr">STL</span> להדפסת <span class="ltr">FDM</span>.
+        </p>
+      </section>
+
+      <!-- Tech Stack -->
+      <section>
+        <h2>ערימת טכנולוגיות</h2>
+        <div class="tech-stack">
+          <div class="tech-item"><div class="tech-name">Electron 41</div><div class="tech-role">דסקטופ</div></div>
+          <div class="tech-item"><div class="tech-name">React 19</div><div class="tech-role">ממשק</div></div>
+          <div class="tech-item"><div class="tech-name">Three.js 0.183</div><div class="tech-role">מנוע 3D</div></div>
+          <div class="tech-item"><div class="tech-name">R3F + Drei</div><div class="tech-role">React-Three</div></div>
+          <div class="tech-item"><div class="tech-name">Zustand 5</div><div class="tech-role">ניהול מצב</div></div>
+          <div class="tech-item"><div class="tech-name">manifold-3d</div><div class="tech-role">CSG (WASM)</div></div>
+          <div class="tech-item"><div class="tech-name">TypeScript 5</div><div class="tech-role">שפה</div></div>
+          <div class="tech-item"><div class="tech-name">electron-vite</div><div class="tech-role">בנייה</div></div>
+        </div>
+      </section>
+
+      <!-- Phases -->
+      <section>
+        <h2>שלבי פיתוח</h2>
+        <p>הפרויקט מחולק לשלבים, כל אחד מתמקד ביכולת אחרת:</p>
+
+        <div class="phases-grid">
+          <div class="phase-card">
+            <div class="phase-number">PHASE 1</div>
+            <div class="phase-title">יסודות</div>
+            <div class="phase-desc">מסגרת פרמטרית, Part Tree, Toolbar, Matcap render, קיצורי מקלדת.</div>
+            <span class="status-indicator completed">&#10003; 85%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">PHASE 2</div>
+            <div class="phase-title">Split + Connectors</div>
+            <div class="phase-desc">חלוקה להדפסה, 4 סוגי חיבורים, manifold-3d WASM.</div>
+            <span class="status-indicator in-progress">&#9675; שבור - 40%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">PHASE 3</div>
+            <div class="phase-title">Import + Placement</div>
+            <div class="phase-desc">ייבוא STL/OBJ/GLTF/PLY, primitives, DecorationPanel.</div>
+            <span class="status-indicator completed">&#10003; 90%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">PHASE 4</div>
+            <div class="phase-title">Boolean Ops</div>
+            <div class="phase-desc">Merge, Cookie Cut, Bas-Relief. Dual-engine CSG.</div>
+            <span class="status-indicator in-progress">&#9675; שבור - 20%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">SPLINE</div>
+            <div class="phase-title">צורות מסגרת</div>
+            <div class="phase-desc">Rectangle, Circle, Ellipse, Polygon, Freehand. Beam+Miter cuts.</div>
+            <span class="status-indicator completed">&#10003; 80%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">CLONER</div>
+            <div class="phase-title">שכפולים</div>
+            <div class="phase-desc">Live cloner, multi-source iterate, step + random effectors.</div>
+            <span class="status-indicator completed">&#10003; 90%</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">PHASE 5</div>
+            <div class="phase-title">Rendering</div>
+            <div class="phase-desc">Material library, HDRI environments, Path tracer.</div>
+            <span class="status-indicator pending">&#9675; טרם התחיל</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-number">PHASE 6</div>
+            <div class="phase-title">Export</div>
+            <div class="phase-desc">STL/OBJ/3MF export, assembly PDF, project save/load.</div>
+            <span class="status-indicator pending">&#9675; טרם התחיל</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Works -->
+      <section>
+        <h2>מה עובד עכשיו</h2>
+        <div class="info-box tip">
+          <div class="info-box-title">יכולות מוכנות לשימוש</div>
+          <p>המערכת מאפשרת עיצוב מסגרות בצורות שונות, ציור פרופיל חופשי, ייבוא מודלים, שכפול לאורך ה-path, ו-symmetry mirror - הכל בזמן אמת ללא כפתור Apply.</p>
+        </div>
+        <div class="phases-grid">
+          <div class="card"><div class="card-title">🖼 צורות מסגרת</div><p>Rectangle (miter 45°), Circle, Ellipse, Polygon (3-12), Freehand + smooth.</p></div>
+          <div class="card"><div class="card-title">✏️ Profile Editor</div><p>ציור חופשי, 6 presets, Chaikin smooth, Shift snap, live update.</p></div>
+          <div class="card"><div class="card-title">🔄 Cloner</div><p>שכפול לאורך path, iterate, step rotation/scale, 6 random effectors.</p></div>
+          <div class="card"><div class="card-title">📥 Import</div><p>STL, OBJ, GLTF, PLY. Auto-scale. 5 primitives. Gizmo (W/E/R).</p></div>
+          <div class="card"><div class="card-title">🪞 Symmetry</div><p>Left↔Right, Top↔Bottom, Quarter. Live mirror ghosts.</p></div>
+          <div class="card"><div class="card-title">🎨 Viewport</div><p>Matcap clay, wireframe overlay, demand rendering.</p></div>
+        </div>
+      </section>
+
+      <!-- Broken -->
+      <section>
+        <h2>מה שבור</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">בעיות ידועות</div>
+          <p>Split, Boolean Merge, Cookie Cut לא עובדים ברוב המקרים. <a href="issues.html">פירוט &rarr;</a></p>
+        </div>
+      </section>
+
+      <!-- Links -->
+      <section>
+        <h2>קישורים</h2>
+        <div class="research-links">
+          <a href="https://github.com/ElirazDekaloWIx/3D-Picture-Frame" target="_blank" class="research-link">
+            <div><div class="link-type">Repository</div><div class="link-title">GitHub - 3D-Picture-Frame</div><div class="link-desc">קוד מקור</div></div>
+          </a>
+          <a href="guide.html" class="research-link">
+            <div><div class="link-type">Guide</div><div class="link-title">מדריך שימוש מלא</div><div class="link-desc">How-To, קיצורים, ניווט</div></div>
+          </a>
+          <a href="research.html" class="research-link">
+            <div><div class="link-type">Technical</div><div class="link-title">מחקר טכני</div><div class="link-desc">CSG, Rendering, Three.js</div></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Printer -->
+      <section>
+        <h2>מדפסת יעד</h2>
+        <div class="card">
+          <div class="card-title" dir="ltr">Bambu Lab A1</div>
+          <p dir="ltr" style="font-family: var(--font-mono); font-size: 0.88rem;">Build Volume: 256 × 256 × 256 mm | Nozzle: 0.4mm | PLA / PETG / TPU / ABS</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
