@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #16213e;
+}
+::-webkit-scrollbar-thumb {
+  background: #333355;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a6a;
+}
+
+/* Prevent text selection in UI panels */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Panel resize handle */
+.resize-handle {
+  cursor: col-resize;
+  width: 4px;
+  background: transparent;
+  transition: background 0.15s;
+}
+.resize-handle:hover {
+  background: #4a9eff;
+}
+
+/* Number input scrubber */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

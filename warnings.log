@@ -1,0 +1,647 @@
+Total messages: 185 (Errors: 0, Warnings: 185)
+
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"] is invalid due to a previous error.
+ - While encoding [RenderPassEncoder (unlabeled)].SetPipeline([Invalid RenderPipeline "renderPipeline_ShadowMaterial_19"]).
+ - While finishing [CommandEncoder "renderContext_0"].
+ @ http://localhost:5173/?t=check3:0
+[WARNING] [Invalid CommandBuffer from CommandEncoder "renderContext_0"] is invalid due to a previous error.
+ - While calling [Queue].Submit([[Invalid CommandBuffer from CommandEncoder "renderContext_0"]])
+ @ http://localhost:5173/?t=check3:0
+[WARNING] WebGPU: too many warnings, no more warnings will be reported to the console for this GPUDevice. @ http://localhost:5173/?t=check3:0

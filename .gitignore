@@ -1,0 +1,9 @@
+node_modules/
+out/
+dist/
+*.tsbuildinfo
+.DS_Store
+*.local
+.env
+.playwright-mcp/
+.claude/

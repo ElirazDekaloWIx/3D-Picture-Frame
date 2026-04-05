@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/renderer/src/core/*"],
+      "@store/*": ["src/renderer/src/store/*"],
+      "@scene/*": ["src/renderer/src/scene/*"],
+      "@ui/*": ["src/renderer/src/ui/*"],
+      "@io/*": ["src/renderer/src/io/*"],
+      "@rendering/*": ["src/renderer/src/rendering/*"],
+      "@workers/*": ["src/renderer/src/workers/*"]
+    },
+    "outDir": "./out"
+  },
+  "include": [
+    "src/renderer/src/**/*",
+    "src/renderer/*.d.ts"
+  ]
+}
