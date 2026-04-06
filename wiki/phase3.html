@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב 3: Import + Placement - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link active"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב 3: Import + Placement</h1>
+        <p class="subtitle">ייבוא מודלים תלת-מימדיים חיצוניים, הוספת צורות בסיסיות, ומיקום על המסגרת.</p>
+        <span class="version-badge completed">90% הושלם</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>מסגרת בלי עיטורים היא משעממת. שלב 3 מאפשר <strong>ייבוא מודלים מהעולם החיצוני</strong> (STL/OBJ/GLTF/PLY) ומיקום שלהם על המסגרת כדי ליצור עיצובים ייחודיים.</p>
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title">Import מודלים</div>
+            <p>תמיכה ב-4 פורמטים נפוצים. Auto-detect לפי סיומת קובץ. נירמול אוטומטי (מרכוז, scaling).</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Primitives</div>
+            <p>5 צורות בסיסיות: Cube, Sphere, Cylinder, Cone, Torus. לבדיקות מהירות ולעיצוב.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Placement</div>
+            <p>Position/Rotation/Scale ידני דרך פאנל + Gizmo (W/E/R). כפתורי Quick Rotation. Drag-to-scrub על labels.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב 1</strong> - Part Tree (הוספת חלק), Store (meshCache), Viewport (רנדור)</li>
+            <li><strong>Electron preload</strong> - <code>window.api.openFile()</code> לדיאלוג בחירת קובץ</li>
+          </ul>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box-title">נותן ל:</div>
+          <ul>
+            <li><strong>שלב 4</strong> - מודלים מיובאים משמשים ל-Merge, Cookie Cut, Bas-Relief</li>
+            <li><strong>שלב Cloner</strong> - מודלים מיובאים כ-source ל-cloner</li>
+            <li><strong>שלב 6</strong> - חלקים מיובאים כלולים ב-export</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>פורמטים נתמכים</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>פורמט</th><th>סיומת</th><th>Loader</th><th>הערות</th></tr>
+            <tr><td>STL (Binary/ASCII)</td><td>.stl</td><td>STLLoader</td><td>הפורמט הכי נפוץ להדפסה. אין צבע, אין נורמלים מובנים.</td></tr>
+            <tr><td>Wavefront OBJ</td><td>.obj</td><td>OBJLoader</td><td>פשוט, נפוץ. תומך קבוצות ו-normals.</td></tr>
+            <tr><td>GLTF / GLB</td><td>.gltf, .glb</td><td>GLTFLoader</td><td>סטנדרט מודרני. GLB = binary compressed.</td></tr>
+            <tr><td>PLY</td><td>.ply</td><td>PLYLoader</td><td>נפוץ בסריקה. תומך vertex colors.</td></tr>
+          </table>
+        </div>
+
+        <div class="info-box research">
+          <div class="info-box-title">פורמטים עתידיים</div>
+          <ul>
+            <li><strong>STEP</strong> - דורש opencascade.js (~20MB WASM). Lazy-loaded.</li>
+            <li><strong>3MF</strong> - ZIP עם XML + mesh data. Parser מותאם.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>זרימת Import</h2>
+        <pre><code>1. User clicks "Import" button in Toolbar
+2. window.api.openFile({ filters: [STL, OBJ, GLTF, PLY] })
+3. Returns { path: string, data: ArrayBuffer }
+4. ModelImporter.importModel(fileName, data)
+   - Auto-detect format by extension
+   - Parse with appropriate Three.js loader
+   - normalizeGeometry(): center, compute normals
+5. useProjectStore.importModel(fileName, geometry)
+   - Create PartNode { type: 'decoration' }
+   - Auto-scale to 60% of picture height
+   - Add to meshCache
+6. Model appears in scene + part tree</code></pre>
+      </section>
+
+      <section>
+        <h2>בעיה ידועה</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">#006 - כיוון STL לא תמיד נכון</div>
+          <p>פורמט STL לא מגדיר כיוון. מודלים מגיעים מסובבים או הפוכים. ניסינו auto-rotation (PCA, bounding box analysis) - כשל עם מודלים שונים. <strong>Workaround:</strong> כפתורי Quick Rotation (Front/Back/Flip/Lay) ב-DecorationPanel.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>קבצים</h2>
+        <pre><code>io/importers/ModelImporter.ts     - STL/OBJ/GLTF/PLY parser + normalize
+ui/panels/DecorationPanel.tsx     - Position/Rotation/Scale + Quick Rotation
+ui/layout/Toolbar.tsx             - Import button handler + Primitives dropdown
+store/useProjectStore.ts          - importModel() action</code></pre>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

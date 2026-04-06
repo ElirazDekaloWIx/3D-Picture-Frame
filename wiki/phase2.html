@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב 2: Split + Connectors - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link active"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב 2: Split + Connectors</h1>
+        <p class="subtitle">חלוקת מסגרות גדולות לחלקים שנכנסים למדפסת 3D, עם חיבורים (connectors) שמאפשרים הרכבה.</p>
+        <span class="version-badge in-progress">40% - שבור חלקית</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>מסגרת תמונה גדולה (למשל 50x70 ס"מ) <strong>לא נכנסת למדפסת</strong> (256x256x256 מ"מ). שלב 2 מאפשר:</p>
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title">Auto-Split</div>
+            <p>חישוב אוטומטי של מישורי חיתוך כדי שכל חלק ייכנס לנפח ההדפסה. אלגוריתם רקורסיבי - אם חלק עדיין גדול מדי, חותך שוב.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Manual Split</div>
+            <p>המשתמש גורר מישורי חיתוך כתומים ב-viewport. שליטה מלאה על מיקום החיתוך.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Connectors</div>
+            <p>חיבורים שמוכנסים אוטומטית בנקודות החיתוך. 4 סוגים: snap-fit, dovetail, pin+hole, mortise-tenon.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">CSG Engine</div>
+            <p>manifold-3d WASM לחיתוך watertight. ה-CSG engine הוא הליבה הטכנית של השלב.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב 1 (Foundation)</strong> - Part Tree, Store, Viewport, מנוע גאומטריה</li>
+          </ul>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box-title">נותן ל:</div>
+          <ul>
+            <li><strong>שלב 4 (Boolean Ops)</strong> - אותו CSG engine משמש ל-merge, cookie cut</li>
+            <li><strong>שלב 6 (Export)</strong> - חלקים מפוצלים מוכנים לייצוא כ-STL נפרדים</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>מה השלב נותן</h2>
+        <ul>
+          <li><strong>חיתוך למדפסת</strong> - מסגרת גדולה &rarr; חלקים שנכנסים ל-256mm</li>
+          <li><strong>חיבורים</strong> - כל חלק מקבל male/female connector להרכבה</li>
+          <li><strong>תצוגה מקדימה</strong> - מישורי חיתוך כתומים שקופים ב-viewport</li>
+          <li><strong>CSG pipeline</strong> - תשתית boolean operations ל-merge, subtract, cookie cut</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>הגישה הטכנית</h2>
+
+        <h3>manifold-3d WASM</h3>
+        <p>ספריית <span class="ltr">manifold-3d</span> היא הליבה. היא מבטיחה פלט <span class="ltr">watertight</span> (חיוני להדפסה), אבל דורשת קלט manifold.</p>
+        <pre><code>Pipeline:
+1. BufferGeometry → mergeVertices(tolerance)
+2. Extract positions + indices
+3. new Manifold({ numProp: 3, vertProperties, triVerts })
+4. manifold._TrimByPlane(normal, offset) → positive half
+5. original.subtract(positive) → negative half
+6. Manifold → _GetMeshJS() → BufferGeometry</code></pre>
+
+        <h3>סוגי Connectors</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>סוג</th><th>תיאור</th><th>יתרונות</th><th>חסרונות</th></tr>
+            <tr><td>Snap-Fit</td><td>לשון עם undercut שנכנסת בלחיצה</td><td>לא צריך דבק, מהיר</td><td>Feature size קטן, קשה להדפסה</td></tr>
+            <tr><td>Dovetail</td><td>חיבור זנב סנונית - כיוון אחד</td><td>חזק, בלי דבק</td><td>דורש דיוק גבוה</td></tr>
+            <tr><td>Pin+Hole</td><td>פין שנכנס לחור</td><td>פשוט, אמין</td><td>צריך דבק לקיבוע</td></tr>
+            <tr><td>Mortise-Tenon</td><td>שקע + בליטה מלבנית</td><td>חזק מאוד</td><td>דורש tolerance מדויק</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>מצב נוכחי ובעיות</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">בעיות קריטיות</div>
+          <ul>
+            <li><strong>#001 - Split שובר geometry</strong>: חלקים מתפזרים ומשתטחים. Root cause: Coordinate space mismatch - FrameScene מוסיף yOffset אבל תוצאות Split כבר ב-world space.</li>
+            <li><strong>#003 - Connector CSG נכשל</strong>: גאומטריית connector (snap-fit) קטנה מדי / לא manifold &rarr; CSG נכשל בשקט.</li>
+          </ul>
+        </div>
+
+        <h3>מה עובד</h3>
+        <ul>
+          <li>ManifoldAdapter - המרה Three.js &harr; manifold-3d</li>
+          <li>SplitPlane calculation - חישוב מישורי חיתוך נכון</li>
+          <li>SplitPlaneVisual - תצוגת מישורים כתומים ב-viewport</li>
+          <li>ConnectorGenerator - 4 סוגי connectors מיוצרים</li>
+          <li>SplitPanel UI - ממשק בחירת ציר ו-connector type</li>
+        </ul>
+
+        <h3>מה שבור</h3>
+        <ul>
+          <li>Split בפועל - חלקים יוצאים שבורים או שטוחים</li>
+          <li>Connector CSG - union של connector לתוך חלק נכשל</li>
+          <li>Multi-plane split - רק מישור ראשון מיושם</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>תוכנית תיקון</h2>
+        <ol>
+          <li><strong>תיקון coordinate space</strong> - Split צריך לעבוד באותו מרחב שבו הגאומטריה מאוחסנת</li>
+          <li><strong>הגדלת connectors</strong> - minimum feature size 1.5mm (במקום 0.75mm)</li>
+          <li><strong>ולידציית manifold</strong> - בדיקת status() אחרי כל Manifold construction</li>
+          <li><strong>Multi-plane</strong> - יישום סדרתי של כל מישורי החיתוך</li>
+          <li><strong>Web Worker</strong> - העברת CSG לthread נפרד למניעת freezing</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>קבצים</h2>
+        <pre><code>core/csg/ManifoldAdapter.ts        - Three.js ↔ manifold-3d bridge
+core/csg/CSGOperations.ts          - Dual-engine boolean ops
+core/splitting/SplitPlane.ts       - Auto-split calculation
+core/splitting/AutoSplitter.ts     - Split + connector insertion
+core/connectors/ConnectorGenerator.ts  - 4 connector types
+scene/SplitPlaneVisual.tsx         - Orange split planes in viewport
+ui/panels/SplitPanel.tsx           - Split tool UI
+store/useSplitPreviewStore.ts      - Split preview state</code></pre>
+      </section>
+
+      <section>
+        <h2>מחקר ורפרנסים</h2>
+        <div class="research-links">
+          <a href="https://github.com/elalish/manifold" target="_blank" class="research-link">
+            <div><div class="link-type">Library</div><div class="link-title">manifold-3d GitHub</div><div class="link-desc">ספריית CSG watertight ב-WASM</div></div>
+          </a>
+          <a href="https://github.com/gkjohnson/three-bvh-csg" target="_blank" class="research-link">
+            <div><div class="link-type">Fallback</div><div class="link-title">three-bvh-csg</div><div class="link-desc">CSG מהיר עבור non-manifold meshes</div></div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

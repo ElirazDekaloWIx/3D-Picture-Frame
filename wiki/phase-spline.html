@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב S: Spline Frames - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link active"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב S: Spline Frames</h1>
+        <p class="subtitle">מערכת צורות מסגרת - מלבן, עיגול, אליפסה, מצולע, ציור חופשי. ניתוב path + הוצאת פרופיל.</p>
+        <span class="version-badge completed">80% הושלם</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>בשלב 1 המסגרת הייתה <strong>תמיד מלבנית</strong>. שלב S מרחיב את זה ל<strong>כל צורה אפשרית</strong>. הרעיון: מסגרת = <strong>path סגור (2D)</strong> + <strong>חתך פרופיל</strong> שמוצא לאורכו.</p>
+
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title">Rectangle</div>
+            <p>4 צלעות ישרות. שיטת <strong>Beam + Miter Cut</strong> - כמו בניית מסגרות אמיתית. חיתוך ב-45° בפינות.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Circle</div>
+            <p>Path מעגלי עם <span class="ltr">CatmullRomCurve3</span>. 128 segments. חלק לחלוטין.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Ellipse</div>
+            <p>כמו Circle אבל עם <span class="ltr">radiusX ≠ radiusY</span>. מסגרת אובלית.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Polygon</div>
+            <p>3-12 צלעות. שיטת Beam + Miter. זווית ה-miter משתנה לפי מספר הצלעות.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Freehand</div>
+            <p>ציור חופשי על canvas. <span class="ltr">Chaikin smooth</span>. מסגרת בכל צורה שתרצה.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">SVG Import (עתידי)</div>
+            <p>ייבוא path מקובץ SVG. Bezier curves. Scale/fit אוטומטי.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>הרעיון המרכזי: שתי שיטות בנייה</h2>
+        <div class="info-box note">
+          <div class="info-box-title">החלטה ארכיטקטונית קריטית</div>
+          <p>צורות עם <strong>צלעות ישרות</strong> (מלבן, מצולע) משתמשות ב-<strong>Beam + Miter Cut</strong> - כל צלע היא קורה נפרדת עם חיתוך מדויק בפינות. צורות <strong>מעוקלות</strong> (עיגול, אליפסה, freehand) משתמשות ב-<strong>SplineExtruder</strong> - פרופיל מוצא לאורך curve רציף.</p>
+        </div>
+
+        <h3>למה שתי שיטות?</h3>
+        <p>ניסינו SplineExtruder לכל הצורות. <strong>הפינות יצאו מעוגלות</strong>. הסיבה: <code>CatmullRomCurve3</code> מחליק עיקולים, ו-<code>computeVertexNormals()</code> ממצע normals. כמו שמסגרות אמיתיות נבנות מקורות ישרות עם חיתוך בזוויות - כך גם אנחנו.</p>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב 1</strong> - FrameGenerator (שהורחב), Store (framePath state), Viewport</li>
+          </ul>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box-title">נותן ל:</div>
+          <ul>
+            <li><strong>שלב Cloner</strong> - ה-path points שמשמשים לפיזור ה-clones</li>
+            <li><strong>Symmetry</strong> - שיקוף עובד על כל צורת path</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>אלגוריתמים</h2>
+
+        <h3>Beam + Miter Cut (מצולעים)</h3>
+        <pre><code>לכל צלע במצולע:
+  1. חשב exteriorAngle מ-dot/cross product
+  2. miterAngle = exteriorAngle / 2
+  3. בנה קורה ישרה עם חתך הפרופיל
+  4. בכל קצה: הזז vertices לפי tan(miterAngle)
+     widthOffset = (u - 0.5) * frameWidth
+     miterShift = widthOffset * tan(miterAngle) * sign
+  5. 0.1mm overlap בין קורות למניעת פערים
+  6. ללא cap faces (הפינות מכוסות ע"י חפיפה)</code></pre>
+
+        <h3>SplineExtruder (עקומות)</h3>
+        <pre><code>1. הגדר path כ-CatmullRomCurve3 (closed=true)
+2. דגום N נקודות מרווחות שווה (N=128 לעיגול)
+3. בכל נקודה: חשב tangent + outward normal
+   outward = (-tangent.y, tangent.x, 0)  // ניצב ב-XY
+4. הנח טבעת vertices של הפרופיל בכל נקודה
+5. חבר טבעות סמוכות במשולשים
+6. סגור לולאה (טבעת אחרונה → ראשונה)</code></pre>
+
+        <h3>Chaikin Smoothing (Freehand)</h3>
+        <pre><code>לכל iteration (0-5 levels):
+  לכל זוג נקודות סמוכות P[i], P[i+1]:
+    Q1 = 0.75 * P[i] + 0.25 * P[i+1]
+    Q2 = 0.25 * P[i] + 0.75 * P[i+1]
+    החלף את P[i]→P[i+1] ב-Q1, Q2
+
+Result: כפול נקודות בכל iteration, עקומה חלקה יותר</code></pre>
+      </section>
+
+      <section>
+        <h2>בעיות ידועות</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>בעיה</th><th>סטטוס</th><th>תיאור</th></tr>
+            <tr><td>#004 - פינות Rectangle</td><td><span class="version-badge in-progress">חלקית</span></td><td>פרופילים מורכבים יוצרים פער קטן בפינות</td></tr>
+            <tr><td>#005 - Back plate ב-Freehand</td><td><span class="version-badge in-progress">חלקית</span></td><td>אלגוריתם shrink-toward-center לא מדויק לצורות קעורות</td></tr>
+            <tr><td>SVG Import</td><td><span class="version-badge pending">מתוכנן</span></td><td>ייבוא path מ-SVG עדיין לא ממומש</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>קבצים</h2>
+        <pre><code>core/parametric/FramePath.ts         - Path builders (rect, circle, polygon, etc.)
+core/parametric/SplineExtruder.ts    - Profile extrusion along curves
+core/parametric/FrameGenerator.ts    - Routes to beam or spline based on shape
+core/parametric/FrameProfile.ts      - 6 profile presets
+ui/panels/ProfileEditor.tsx          - Frame shape selector + freehand canvas
+store/useProjectStore.ts             - framePath state
+store/useFrameInit.ts                - Regeneration on path change</code></pre>
+      </section>
+
+      <section>
+        <h2>רעיונות עתידיים</h2>
+        <div class="info-box research">
+          <div class="info-box-title">הרחבות אפשריות</div>
+          <ul>
+            <li><strong>SVG Import</strong> - פירוק SVG path data ל-control points</li>
+            <li><strong>Bezier Curves</strong> - נקודות שליטה עם handles (כמו ב-Illustrator)</li>
+            <li><strong>Profile Along Path</strong> - פרופיל שמשתנה לאורך ה-path (taper)</li>
+            <li><strong>Multi-Path</strong> - מסגרת בתוך מסגרת (double frame)</li>
+            <li><strong>Text Path</strong> - טקסט כצורת מסגרת</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

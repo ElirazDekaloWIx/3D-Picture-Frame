@@ -1,23 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research & Technical Notes - 3D Frame Designer Wiki</title>
+  <title>מחקר טכני - 3D Frame Designer Wiki</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* LTR overrides for English page */
-    body { direction: ltr; font-family: var(--font-english); }
-    .sidebar { border-left: none; border-right: 1px solid var(--border-color); right: auto; left: 0; }
-    .main-content { margin-right: 0; margin-left: 260px; }
-    .info-box { border-right: none; border-left: 3px solid; }
-    .info-box.warning { border-color: var(--accent-orange); }
-    .info-box.note { border-color: var(--accent-blue); }
-    .info-box.research { border-color: var(--accent-purple); }
-    ul, ol { padding-right: 0; padding-left: var(--spacing-xl); }
-    .layer-content { padding-right: 0; padding-left: var(--spacing-lg); border-right: none; border-left: 2px solid var(--border-subtle); }
-    @media (max-width: 768px) { .main-content { margin-left: 0; } }
-  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -25,34 +12,34 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
-      <div class="sidebar-subtitle" style="direction: rtl; text-align: right;">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניווט</div>
-        <a href="index.html" class="nav-link" style="direction: rtl;">סקירה כללית</a>
-        <a href="features.html" class="nav-link" style="direction: rtl;">פיצ'רים</a>
-        <a href="guide.html" class="nav-link" style="direction: rtl;">מדריך שימוש</a>
-        <a href="architecture.html" class="nav-link" style="direction: rtl;">ארכיטקטורה</a>
-        <a href="research.html" class="nav-link active" style="direction: rtl;">מחקר טכני</a>
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link active">מחקר טכני</a>
       </div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניהול פרויקט</div>
-        <a href="roadmap.html" class="nav-link" style="direction: rtl;">תוכנית עבודה</a>
-        <a href="changelog.html" class="nav-link" style="direction: rtl;">לוג גרסאות</a>
-        <a href="issues.html" class="nav-link" style="direction: rtl;">בעיות ידועות</a>
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
       </div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">שלבי פיתוח</div>
-        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
-        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
-        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
-        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
-        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
       </div>
     </aside>
 
@@ -60,20 +47,20 @@
     <div class="main-content">
 
       <div class="page-header">
-        <h1>Research &amp; Technical Notes</h1>
-        <p class="subtitle">Deep-dive technical research notes covering CSG, rendering, frame construction, cloner system, and Three.js specifics.</p>
+        <h1>מחקר טכני</h1>
+        <p class="subtitle">הערות מחקר טכניות מעמיקות על CSG, רנדור, בניית מסגרות, מערכת ה-Cloner, ו-Three.js.</p>
       </div>
 
       <!-- CSG Research -->
       <section>
-        <h2>CSG (Constructive Solid Geometry)</h2>
+        <h2>מחקר CSG</h2>
 
         <div class="card">
-          <div class="card-title">manifold-3d v3.4 - WASM API Quirks</div>
-          <p>The manifold-3d library guarantees watertight output but has specific API requirements discovered during development:</p>
+          <div class="card-title">ממשק manifold-3d v3.4 - מלכודות ב-WASM</div>
+          <p>ספריית <span class="ltr">manifold-3d</span> מבטיחה פלט <span class="ltr">watertight</span> אבל יש לה דרישות <span class="ltr">API</span> ספציפיות שנתגלו בפיתוח:</p>
 
-          <h4>WASM Method Names</h4>
-          <p>The runtime API uses underscore-prefixed method names different from TypeScript declarations:</p>
+          <h4>שמות מתודות WASM</h4>
+          <p>ה-<span class="ltr">API</span> בזמן ריצה משתמש בשמות עם קו תחתון, שונים מהגדרות ה-<span class="ltr">TypeScript</span>:</p>
           <pre><code><span class="cm">// TypeScript declarations say:</span>
 manifold.splitByPlane(normal, offset)
 
@@ -84,7 +71,7 @@ manifold._GetMeshJS()                       <span class="cm">// extracts mesh da
 manifold.add(other)                         <span class="cm">// boolean union</span>
 manifold.subtract(other)                    <span class="cm">// boolean subtract</span></code></pre>
 
-          <h4>MeshGL Construction</h4>
+          <h4>בניית MeshGL</h4>
           <pre><code><span class="cm">// What works:</span>
 <span class="kw">new</span> wasm.<span class="fn">Manifold</span>({
   numProp: <span class="num">3</span>,
@@ -95,213 +82,204 @@ manifold.subtract(other)                    <span class="cm">// boolean subtract
 <span class="cm">// Status checking:</span>
 manifold.<span class="fn">status</span>()  <span class="cm">// returns "NoError" (string), not 0 (number)</span></code></pre>
 
-          <h4>Key Findings</h4>
+          <h4>ממצאים מרכזיים</h4>
           <ul>
-            <li><code>setup()</code> returns empty object - no Mesh class available</li>
-            <li>WASM file must be served with correct MIME type - copied to <code>public/manifold.wasm</code></li>
-            <li><code>locateFile</code> callback needed for Vite dev mode</li>
-            <li><code>_GetMeshJS()</code> returns <code>vertProperties</code> with <code>numProp</code> possibly &gt; 3</li>
+            <li><code>setup()</code> מחזיר אובייקט ריק - אין <span class="ltr">Mesh class</span> זמין</li>
+            <li>קובץ <span class="ltr">WASM</span> חייב להיות מוגש עם <span class="ltr">MIME type</span> נכון - הועתק ל-<code>public/manifold.wasm</code></li>
+            <li>צריך <code>locateFile</code> callback למצב <span class="ltr">Vite dev</span></li>
+            <li><code>_GetMeshJS()</code> מחזיר <code>vertProperties</code> עם <code>numProp</code> שיכול להיות &gt; 3</li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="card-title">Non-Manifold Mesh Problem</div>
-          <p>The fundamental challenge: manifold-3d requires watertight input, but most meshes are not watertight.</p>
+          <div class="card-title">בעיית ה-Non-Manifold</div>
+          <p>האתגר הבסיסי: <span class="ltr">manifold-3d</span> דורש קלט <span class="ltr">watertight</span>, אבל רוב ה-meshים לא כאלה.</p>
 
-          <h4>Sources of Non-Manifold Geometry</h4>
+          <h4>מקורות גאומטריה לא-manifold</h4>
           <div class="table-wrapper">
             <table>
-              <tr><th>Source</th><th>Issue</th><th>Fixable?</th></tr>
-              <tr><td>Three.js ExtrudeGeometry</td><td>Duplicate vertices (per-face normals)</td><td>Yes - mergeVertices()</td></tr>
-              <tr><td>Imported STL</td><td>Holes, self-intersections, non-orientable</td><td>Partially</td></tr>
-              <tr><td>Imported OBJ</td><td>Open edges, T-junctions</td><td>Partially</td></tr>
-              <tr><td>Custom vertex mesh</td><td>Depends on construction</td><td>Yes if careful</td></tr>
+              <tr><th>מקור</th><th>בעיה</th><th>ניתן לתיקון?</th></tr>
+              <tr><td>Three.js ExtrudeGeometry</td><td>קודקודים כפולים (normals per-face)</td><td>כן - mergeVertices()</td></tr>
+              <tr><td>STL מיובא</td><td>חורים, חיתוכים עצמיים</td><td>חלקית</td></tr>
+              <tr><td>OBJ מיובא</td><td>קצוות פתוחים, T-junctions</td><td>חלקית</td></tr>
+              <tr><td>Mesh מותאם</td><td>תלוי בבנייה</td><td>כן אם בונים נכון</td></tr>
             </table>
           </div>
 
-          <h4>Repair Options Researched</h4>
+          <h4>אפשרויות תיקון שנחקרו</h4>
           <ul>
-            <li><strong>MeshLib (meshlib.io)</strong> - C++ with WASM support. Full repair pipeline. No npm package - must build from source.</li>
-            <li><strong>meshoptimizer</strong> - Optimization only, not repair.</li>
-            <li><strong>opencascade.js</strong> - BREP healing, not mesh level. 20MB+ WASM.</li>
-            <li><strong>Admesh</strong> - Used by PrusaSlicer. Fill small holes, fix normals. Not available as JS.</li>
+            <li><strong>MeshLib (meshlib.io)</strong> - C++ עם תמיכת WASM. Pipeline תיקון מלא. אין npm package - צריך לבנות ממקור.</li>
+            <li><strong>meshoptimizer</strong> - אופטימיזציה בלבד, לא תיקון.</li>
+            <li><strong>opencascade.js</strong> - תיקון BREP, לא ברמת mesh. יותר מ-20MB WASM.</li>
+            <li><strong>Admesh</strong> - משמש את PrusaSlicer. ממלא חורים קטנים, מתקן normals. לא זמין כ-JS.</li>
           </ul>
 
-          <h4>Our Solution: Two-Tier CSG</h4>
+          <h4>הפתרון שלנו: CSG דו-שכבתי</h4>
           <pre><code>Tier 1: manifold-3d
-  - For programmatic geometry (frame rails, primitives)
-  - Guaranteed manifold if built correctly
-  - Use mergeVertices() + validate
+  - לגאומטריה תוכניתית (rails, primitives)
+  - מובטח manifold אם בנוי נכון
+  - משתמש ב-mergeVertices() + validation
 
 Tier 2: three-bvh-csg (fallback)
-  - For imported models (STL/OBJ)
-  - Accepts any geometry
-  - Output not guaranteed watertight
-  - Show warning to user</code></pre>
+  - למודלים מיובאים (STL/OBJ)
+  - מקבל כל גאומטריה
+  - פלט לא מובטח watertight
+  - מציג אזהרה למשתמש</code></pre>
 
           <div class="info-box warning">
-            <div class="info-box-title">Key Insight</div>
-            <p>For programmatic geometry, a manifold failure is a bug in our generator, not a repair problem. The merge() call handles the vertex-duplication mismatch between Three.js rendering format and manifold topology.</p>
+            <div class="info-box-title">תובנה מפתח</div>
+            <p>עבור גאומטריה תוכניתית, כשל manifold הוא באג ב-generator שלנו, לא בעיית תיקון. הקריאה ל-<code>merge()</code> מטפלת בחוסר ההתאמה בין פורמט הרנדור של Three.js לטופולוגיה manifold.</p>
           </div>
         </div>
       </section>
 
       <!-- Rendering Research -->
       <section>
-        <h2>Rendering</h2>
+        <h2>מחקר רנדור</h2>
 
         <div class="card">
-          <div class="card-title">Matcap vs PBR vs Environment Lighting</div>
+          <div class="card-title">Matcap מול PBR מול תאורת סביבה</div>
 
-          <h4>Problem</h4>
-          <p>In Electron, HDRI Environment presets from drei don't load reliably. PBR materials without environment maps look flat. ContactShadows cause flickering.</p>
+          <h4>הבעיה</h4>
+          <p>ב-Electron, פריסטים של HDRI Environment מ-drei לא נטענים באופן אמין. חומרי PBR ללא environment maps נראים שטוחים. ContactShadows גורם לריצוד.</p>
 
-          <h4>Solutions Tried</h4>
+          <h4>גישות שנוסו</h4>
           <div class="table-wrapper">
             <table>
-              <tr><th>Approach</th><th>Result</th></tr>
-              <tr><td>Environment preset="studio"</td><td>Works in browser, not always in Electron</td></tr>
-              <tr><td>Programmatic PMREMGenerator</td><td>Flickering - rebuilds every frame</td></tr>
-              <tr><td>ContactShadows</td><td>Flickering - renders offscreen every frame</td></tr>
-              <tr><td>MeshStandardMaterial + directional lights</td><td>Flat without environment</td></tr>
-              <tr><td><strong>MeshMatcapMaterial (chosen)</strong></td><td><strong>Perfect: no lights needed, no HDRI, no flicker</strong></td></tr>
+              <tr><th>גישה</th><th>תוצאה</th></tr>
+              <tr><td>Environment preset="studio"</td><td>עובד בדפדפן, לא תמיד ב-Electron</td></tr>
+              <tr><td>Programmatic PMREMGenerator</td><td>ריצוד - נבנה מחדש כל פריים</td></tr>
+              <tr><td>ContactShadows</td><td>ריצוד - רנדור offscreen כל פריים</td></tr>
+              <tr><td>MeshStandardMaterial + אורות</td><td>שטוח ללא environment</td></tr>
+              <tr><td><strong>MeshMatcapMaterial (נבחר)</strong></td><td><strong>מושלם: ללא אורות, ללא HDRI, ללא ריצוד</strong></td></tr>
             </table>
           </div>
 
-          <h4>Matcap Implementation</h4>
+          <h4>מימוש Matcap</h4>
           <ul>
-            <li>Procedurally generated 512x512 canvas texture</li>
-            <li>Studio lighting baked in: key light, fill, rim, specular, Fresnel</li>
-            <li>Two matcaps: clay (default) and selected (blue)</li>
-            <li>Built once at module level, cached forever</li>
-            <li><code>toneMapped={false}</code> on wireframe lines</li>
+            <li>טקסטורת canvas פרוצדורלית 512x512</li>
+            <li>תאורת סטודיו מובנית: key light, fill, rim, specular, Fresnel</li>
+            <li>שני matcaps: חימר (ברירת מחדל) ונבחר (כחול)</li>
+            <li>נבנים פעם אחת ברמת מודול, cached לתמיד</li>
+            <li><code>toneMapped={false}</code> על קווי wireframe</li>
           </ul>
 
-          <h4>Flicker Prevention</h4>
+          <h4>מניעת ריצוד</h4>
           <pre><code>Root cause: continuous rendering (60fps) when nothing changes.
 
 Solution: frameloop="demand"
   - Canvas renders ONLY when invalidate() is called
-  - OrbitControls: onChange &rarr; invalidate()
-  - Store changes: useEffect &rarr; invalidate()
-  - GizmoHelper: onUpdate &rarr; invalidate()
+  - OrbitControls: onChange → invalidate()
+  - Store changes: useEffect → invalidate()
+  - GizmoHelper: onUpdate → invalidate()
   - StaticGrid: useMemo, never re-renders</code></pre>
         </div>
       </section>
 
       <!-- Frame Construction -->
       <section>
-        <h2>Frame Construction</h2>
+        <h2>בניית מסגרות</h2>
 
         <div class="card">
-          <div class="card-title">Beam + Miter Cut Approach</div>
+          <div class="card-title">גישת Beam + Miter Cut</div>
 
-          <h4>The Problem with Spline Extrusion for Polygons</h4>
-          <p>Extruding a profile along a polygon path creates rounded corners because the "outward" direction changes abruptly at vertices. <code>computeVertexNormals</code> averages normals, smoothing the corners.</p>
+          <h4>הבעיה עם Spline Extrusion למצולעים</h4>
+          <p>הוצאת פרופיל לאורך path מצולע יוצרת פינות מעוגלות כי כיוון ה-"החוצה" משתנה בפתאומיות בקודקודים. <code>computeVertexNormals</code> ממצע normals ומחליק את הפינות.</p>
 
-          <h4>The Solution: Real-World Frame Construction</h4>
-          <pre><code>1. Create a straight beam with profile cross-section
-2. Cut both ends at the miter angle
-3. Place beams at polygon edges
-4. Beams meet precisely at corners
+          <h4>הפתרון: בניית מסגרות כמו בעולם האמיתי</h4>
+          <pre><code>1. יצירת קורה ישרה עם חתך פרופיל
+2. חיתוך שני הקצוות בזווית ה-miter
+3. הנחת קורות על צלעות המצולע
+4. הקורות נפגשות בדיוק בפינות
 
 Miter angle = exteriorAngle / 2
-  Rectangle: exterior = 90&deg;  &rarr; miter = 45&deg;  &rarr; tan = 1.0
-  Hexagon:   exterior = 60&deg;  &rarr; miter = 30&deg;  &rarr; tan = 0.577
-  Triangle:  exterior = 120&deg; &rarr; miter = 60&deg;  &rarr; tan = 1.73</code></pre>
-
-          <h4>Miter Cut Implementation</h4>
-          <pre><code>For each vertex in the profile ring at beam end:
-  widthOffset = (u - 0.5) * frameWidth
-  miterShift = widthOffset * tan(miterAngle) * sign
-  // sign = +1 at start, -1 at end
-
-vertex.x = base.x + outward.x * widthOffset + beamDir.x * (miterShift + overlap)
-vertex.y = base.y + outward.y * widthOffset + beamDir.y * (miterShift + overlap)
-
-// overlap = 0.1mm to prevent Z-fighting gaps at joints
-// No cap faces needed - beams overlap at joints</code></pre>
+  Rectangle: exterior = 90°  → miter = 45°  → tan = 1.0
+  Hexagon:   exterior = 60°  → miter = 30°  → tan = 0.577
+  Triangle:  exterior = 120° → miter = 60°  → tan = 1.73</code></pre>
 
           <div class="info-box note">
-            <div class="info-box-title">Winding Order</div>
-            <p>Rectangle path and polygon path must use the same winding (CCW). Different winding causes outward direction to flip, breaking miter cuts.</p>
+            <div class="info-box-title">סדר Winding</div>
+            <p>Path של מלבן ושל מצולע חייבים להשתמש באותו <span class="ltr">winding</span> (CCW). סדר שונה גורם לכיוון ה-"החוצה" להתהפך ושובר את חיתוכי ה-miter.</p>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">SplineExtruder for Curved Frames</div>
+          <div class="card-title">SplineExtruder למסגרות מעוקלות</div>
+          <h4>אלגוריתם</h4>
+          <pre><code>1. דגימת ה-path curve ב-N נקודות מרווחות שווה
+2. בכל נקודה: חישוב מיקום, tangent, normal חוצה
+3. הנחת חתך פרופיל בכל נקודת דגימה (טבעת קודקודים)
+4. חיבור טבעות סמוכות עם משולשים
+5. סגירת הלולאה (טבעת אחרונה מתחברת לראשונה)
 
-          <h4>Algorithm</h4>
-          <pre><code>1. Sample path curve at N evenly-spaced points
-2. At each sample: compute position, tangent, outward normal
-3. Place profile cross-section at each sample (ring of vertices)
-4. Connect adjacent rings with triangle faces
-5. Close the loop (last ring connects to first)
-
-Outward = perpendicular to tangent in XY plane
+Outward = ניצב ל-tangent במישור XY
   outward = (-tangent.y, tangent.x, 0)
-  Ensure outward points away from path center</code></pre>
-
-          <h4>CatmullRom vs LineCurve</h4>
-          <ul>
-            <li><strong>Smooth paths</strong> (circle, ellipse, freehand): <code>CatmullRomCurve3</code> with tension 0.5</li>
-            <li><strong>Sharp paths</strong> (polygon): Direct vertex placement per edge, no curve interpolation</li>
-          </ul>
+  וידוא שה-outward מצביע הרחק ממרכז ה-path</code></pre>
         </div>
       </section>
 
-      <!-- Cloner Research -->
+      <!-- Links -->
       <section>
-        <h2>Cloner System</h2>
-
-        <div class="card">
-          <div class="card-title">C4D MoGraph Cloner Reference</div>
-          <div class="table-wrapper">
-            <table>
-              <tr><th>C4D Feature</th><th>Our Implementation</th><th>Status</th></tr>
-              <tr><td>Object mode (on spline)</td><td>Along frame path</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Count</td><td>1-60 clones</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Iterate (multi-child)</td><td>Multiple source parts</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Align to spline</td><td>Orient along tangent</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Random effector</td><td>Pos/Rot/Scale/Spacing/Z + Seed</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Step effector</td><td>stepRotation + stepScale</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Live preview</td><td>No Apply button, instant update</td><td><span class="version-badge completed">Done</span></td></tr>
-              <tr><td>Linear mode</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-              <tr><td>Radial mode</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-              <tr><td>Grid mode</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-              <tr><td>Spline effector</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-              <tr><td>Shader effector</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-              <tr><td>Fuse clones</td><td>-</td><td><span class="version-badge pending">Planned</span></td></tr>
-            </table>
-          </div>
+        <h2>לינקים ורפרנסים</h2>
+        <div class="research-links">
+          <a href="https://github.com/elalish/manifold" target="_blank" class="research-link">
+            <div><div class="link-type">Library</div><div class="link-title">manifold-3d</div><div class="link-desc">CSG watertight - הספרייה המרכזית שלנו לחיתוך ומיזוג</div></div>
+          </a>
+          <a href="https://github.com/gkjohnson/three-bvh-csg" target="_blank" class="research-link">
+            <div><div class="link-type">Fallback</div><div class="link-title">three-bvh-csg</div><div class="link-desc">CSG מהיר למודלים non-manifold (fallback)</div></div>
+          </a>
+          <a href="https://github.com/gkjohnson/three-gpu-pathtracer" target="_blank" class="research-link">
+            <div><div class="link-type">Future</div><div class="link-title">three-gpu-pathtracer</div><div class="link-desc">Path tracer ל-Three.js - רנדור פוטוריאליסטי (שלב 5)</div></div>
+          </a>
+          <a href="https://threejs.org/docs/" target="_blank" class="research-link">
+            <div><div class="link-type">Docs</div><div class="link-title">Three.js Documentation</div><div class="link-desc">תיעוד מנוע ה-3D</div></div>
+          </a>
+          <a href="https://docs.pmnd.rs/react-three-fiber" target="_blank" class="research-link">
+            <div><div class="link-type">Docs</div><div class="link-title">React Three Fiber</div><div class="link-desc">Three.js דקלרטיבי עם React</div></div>
+          </a>
+          <a href="https://github.com/pmndrs/drei" target="_blank" class="research-link">
+            <div><div class="link-type">Library</div><div class="link-title">@react-three/drei</div><div class="link-desc">Helpers: OrbitControls, TransformControls, GizmoHelper</div></div>
+          </a>
+          <a href="https://meshlib.io/" target="_blank" class="research-link">
+            <div><div class="link-type">Research</div><div class="link-title">MeshLib</div><div class="link-desc">ספריית mesh repair - נחקרה כפתרון ל-non-manifold</div></div>
+          </a>
+          <a href="https://polyhaven.com/hdris" target="_blank" class="research-link">
+            <div><div class="link-type">Assets</div><div class="link-title">Poly Haven HDRIs</div><div class="link-desc">HDRIs חינמיים - עתידי לשלב 5</div></div>
+          </a>
+          <a href="https://www.maxon.net/en/cinema-4d/mograph" target="_blank" class="research-link">
+            <div><div class="link-type">Reference</div><div class="link-title">Cinema 4D MoGraph</div><div class="link-desc">מערכת ה-Cloner שלנו מבוססת על MoGraph</div></div>
+          </a>
+          <a href="https://wiki.bambulab.com/en/software/bambu-studio" target="_blank" class="research-link">
+            <div><div class="link-type">Target</div><div class="link-title">Bambu Studio Slicer</div><div class="link-desc">ה-slicer של מדפסת היעד Bambu Lab A1</div></div>
+          </a>
         </div>
       </section>
 
       <!-- Three.js Notes -->
       <section>
-        <h2>Three.js Technical Notes</h2>
+        <h2>הערות Three.js</h2>
 
         <div class="card">
-          <div class="card-title">Key Gotchas</div>
+          <div class="card-title">מלכודות שנתגלו</div>
           <ul>
-            <li><code>ExtrudeGeometry</code> always extrudes along Z axis. Must rotate after creation for other orientations.</li>
-            <li><code>computeVertexNormals()</code> averages normals across shared vertices in index buffer. For sharp edges, need separate vertices (use <code>toNonIndexed()</code>).</li>
-            <li><code>mergeVertices(geo, tolerance)</code> from BufferGeometryUtils merges by ALL attributes, not just position. This is fine for manifold conversion.</li>
-            <li><code>BufferGeometry.applyMatrix4()</code> transforms vertices in place. Irreversible.</li>
-            <li><code>MeshMatcapMaterial</code> with negative scale creates inverted shading. Use <code>DoubleSide</code> and wrapper groups for mirrors.</li>
-            <li><code>TransformControls</code> must attach to an object IN the scene graph. Standalone Object3D refs don't work.</li>
-            <li><code>WireframeGeometry</code> must be recreated when source geometry changes (use <code>useMemo</code>).</li>
+            <li><code>ExtrudeGeometry</code> תמיד מוציא לאורך ציר Z. צריך לסובב אחרי יצירה עבור כיוונים אחרים.</li>
+            <li><code>computeVertexNormals()</code> ממצע normals על קודקודים משותפים ב-index buffer. לקצוות חדים, צריך קודקודים נפרדים (<code>toNonIndexed()</code>).</li>
+            <li><code>mergeVertices(geo, tolerance)</code> ממזג לפי כל ה-attributes, לא רק position. מתאים להמרת manifold.</li>
+            <li><code>BufferGeometry.applyMatrix4()</code> משנה קודקודים במקום. בלתי הפיך.</li>
+            <li><code>MeshMatcapMaterial</code> עם scale שלילי יוצר שיידינג הפוך. משתמשים ב-<code>DoubleSide</code> וקבוצות עוטפות למראות.</li>
+            <li><code>TransformControls</code> חייב להתחבר לאובייקט בתוך ה-scene graph. רפרנסים ל-Object3D עצמאיים לא עובדים.</li>
+            <li><code>WireframeGeometry</code> חייב להיווצר מחדש כשהגאומטריה המקורית משתנה (שימוש ב-<code>useMemo</code>).</li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="card-title">Performance Considerations</div>
+          <div class="card-title">שיקולי ביצועים</div>
           <ul>
-            <li><strong>frameloop="demand"</strong> - most important optimization. Reduces GPU usage from 100% to near 0% when idle.</li>
-            <li><strong>Matcap textures</strong> - built once at module level (<code>const CLAY_MATCAP = buildMatcap()</code>). Never rebuilt.</li>
-            <li><strong>useMemo for materials</strong> - prevents material recreation on every render.</li>
-            <li><strong>Cloner instances</strong> - each clone is a separate <code>&lt;mesh&gt;</code>. For 60+ clones, should switch to InstancedMesh.</li>
-            <li><strong>StaticGrid</strong> - LineSegments with useMemo, no shader (drei Grid caused flickering).</li>
+            <li><strong>frameloop="demand"</strong> - האופטימיזציה החשובה ביותר. מוריד שימוש GPU מ-100% לכמעט 0% במצב מנוחה.</li>
+            <li><strong>Matcap textures</strong> - נבנים פעם אחת ברמת מודול. לעולם לא נבנים מחדש.</li>
+            <li><strong>useMemo לחומרים</strong> - מונע יצירה מחדש של material בכל render.</li>
+            <li><strong>Cloner instances</strong> - כל clone הוא mesh נפרד. ל-60+ clones, צריך לעבור ל-InstancedMesh.</li>
+            <li><strong>StaticGrid</strong> - LineSegments עם useMemo, ללא shader (Grid של drei גרם לריצוד).</li>
           </ul>
         </div>
       </section>

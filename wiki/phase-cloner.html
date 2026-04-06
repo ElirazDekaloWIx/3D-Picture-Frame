@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב C: Cloner - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link active"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב C: Cloner</h1>
+        <p class="subtitle">מערכת שכפול בסגנון Cinema 4D MoGraph - פיזור אובייקטים לאורך ה-frame path עם effectors.</p>
+        <span class="version-badge completed">90% הושלם</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>ה-Cloner הוא אחד הכלים <strong>הכי חזקים</strong> במערכת. הוא מאפשר ליצור דפוסים מורכבים על המסגרת ב<strong>לחיצה אחת</strong> - פרחים, כוכבים, אלמנטים דקורטיביים - שחוזרים על עצמם לאורך כל המסגרת.</p>
+
+        <div class="info-box tip">
+          <div class="info-box-title">השראה: Cinema 4D MoGraph</div>
+          <p>הקונספט מבוסס על מערכת ה-<span class="ltr">MoGraph Cloner</span> של <span class="ltr">Cinema 4D</span> - הסטנדרט בתעשייה ל-motion graphics. אנחנו מיישמים את ה-<strong>Object mode</strong> (שכפול לאורך spline) עם effectors.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>איך זה עובד</h2>
+        <pre><code>1. המשתמש מייבא מודל או מוסיף primitive
+2. בוחר אותו ב-Part Tree
+3. לוחץ "Add to Cloner" ב-DecorationPanel
+4. העותקים מופיעים מיד לאורך ה-frame path!
+5. כל slider שמשתנה → עדכון מיידי (ללא Apply)
+
+Flow:
+  DecorationPanel → useClonerStore.set()
+                          │
+  FrameScene ← subscribes to store
+    └→ computeCloneTransforms(pathPoints, settings)
+         └→ Matrix4[] for each clone
+              └→ &lt;mesh geometry={source} matrix={matrix} /&gt;</code></pre>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב S (Spline)</strong> - ה-path points שלאורכם הclones מפוזרים</li>
+            <li><strong>שלב 3 (Import)</strong> - מודלים מיובאים כ-source ל-cloner</li>
+            <li><strong>שלב 1 (Foundation)</strong> - PartMesh לרנדור, Store למצב</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>יכולות</h2>
+
+        <h3>Distribution - פיזור</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>פרמטר</th><th>טווח</th><th>תיאור</th></tr>
+            <tr><td>Count</td><td>1 - 60</td><td>כמות עותקים לאורך ה-path</td></tr>
+            <tr><td>Offset</td><td>-60 &mdash; +60 mm</td><td>מרחק מציר ה-path (פנימה/החוצה)</td></tr>
+            <tr><td>Z Offset</td><td>-30 &mdash; +30 mm</td><td>עומק - קדימה/אחורה</td></tr>
+          </table>
+        </div>
+
+        <h3>Transform - טרנספורמציה</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>פרמטר</th><th>טווח</th><th>תיאור</th></tr>
+            <tr><td>Rotate</td><td>0° - 360°</td><td>סיבוב בסיסי לכל clone</td></tr>
+            <tr><td>Scale</td><td>0.1 - 3.0</td><td>גודל אחיד</td></tr>
+          </table>
+        </div>
+
+        <h3>Step Effectors - אפקטים מצטברים</h3>
+        <p>כל clone מקבל שינוי <strong>מצטבר</strong> ביחס לקודם:</p>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>פרמטר</th><th>טווח</th><th>דוגמה</th></tr>
+            <tr><td>Rot+</td><td>0° - 90°</td><td>clone 1: 0°, clone 2: 15°, clone 3: 30° → ספירלה</td></tr>
+            <tr><td>Scale+</td><td>-0.1 &mdash; +0.1</td><td>clone 1: 1.0, clone 2: 1.05, clone 3: 1.1 → taper</td></tr>
+            <tr><td>Flip Alt</td><td>on/off</td><td>clone 1: רגיל, clone 2: הפוך, clone 3: רגיל</td></tr>
+          </table>
+        </div>
+
+        <h3>Random Effectors - אקראיות</h3>
+        <p>כל clone מקבל jitter אקראי (seeded - תוצאות חזרתיות):</p>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>פרמטר</th><th>טווח</th><th>תיאור</th></tr>
+            <tr><td>Seed</td><td>1 - 999</td><td>מספר seed שונה = תוצאה שונה</td></tr>
+            <tr><td>Spacing</td><td>0 - 1</td><td>פיזור לא-אחיד לאורך ה-path</td></tr>
+            <tr><td>Pos</td><td>0 - 20mm</td><td>ריצוד מיקום (offset)</td></tr>
+            <tr><td>Rot</td><td>0° - 180°</td><td>ריצוד סיבוב</td></tr>
+            <tr><td>Scale</td><td>0 - 1</td><td>ריצוד גודל</td></tr>
+            <tr><td>Z</td><td>0 - 15mm</td><td>ריצוד עומק</td></tr>
+          </table>
+        </div>
+
+        <h3>Multi-Source (Iterate)</h3>
+        <div class="card">
+          <p>אפשר להוסיף <strong>כמה מודלים שונים</strong> ל-cloner. העותקים מתחלפים ביניהם ברצף:</p>
+          <pre><code>Sources: [Flower, Star, Leaf]
+Clone 1: Flower
+Clone 2: Star
+Clone 3: Leaf
+Clone 4: Flower   ← חוזר מההתחלה
+Clone 5: Star
+Clone 6: Leaf
+...</code></pre>
+          <p>כל source נבחר ב-Part Tree ומתווסף דרך כפתור <strong>"Add to Cloner"</strong>.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>שיקולי ביצועים</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">Performance</div>
+          <ul>
+            <li>כרגע כל clone הוא <code>&lt;mesh&gt;</code> נפרד ב-React. זה עובד טוב עד ~40 clones.</li>
+            <li>מעל 60 clones → צריך לעבור ל-<span class="ltr">InstancedMesh</span> (draw call אחד).</li>
+            <li>ה-<code>matrixAutoUpdate={false}</code> כבר מופעל - שיפור קטן.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>השוואה ל-Cinema 4D</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>יכולת C4D</th><th>אצלנו</th><th>סטטוס</th></tr>
+            <tr><td>Object mode (on spline)</td><td>Along frame path</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Count</td><td>1-60 clones</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Iterate (multi-child)</td><td>Multiple source parts</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Align to spline</td><td>Orient along tangent</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Random effector</td><td>6 random params + seed</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Step effector</td><td>Rot+ Scale+ FlipAlt</td><td><span class="version-badge completed">עובד</span></td></tr>
+            <tr><td>Linear mode</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+            <tr><td>Radial mode</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+            <tr><td>Grid mode</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+            <tr><td>Spline effector</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+            <tr><td>Shader effector</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+            <tr><td>Fuse/Bake clones</td><td>-</td><td><span class="version-badge pending">מתוכנן</span></td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>רעיונות עתידיים</h2>
+        <div class="info-box research">
+          <div class="info-box-title">הרחבות</div>
+          <ul>
+            <li><strong>InstancedMesh</strong> - ביצועים: 1000+ clones ב-draw call אחד</li>
+            <li><strong>Bake/Fuse</strong> - הפיכת clones ל-mesh אחיד (לייצוא)</li>
+            <li><strong>Spline Effector</strong> - שליטה בפרמטרים דרך curve</li>
+            <li><strong>Shader Effector</strong> - טקסטורה/noise שולט בפיזור</li>
+            <li><strong>Weight Painting</strong> - צביעת אזורים עם עוצמת effector</li>
+            <li><strong>Nested Cloners</strong> - cloner בתוך cloner</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>קבצים</h2>
+        <pre><code>core/parametric/SplineCloner.ts    - computeCloneTransforms() → Matrix4[]
+store/useClonerStore.ts            - Cloner parameters state
+scene/FrameScene.tsx               - Renders clone instances
+ui/panels/DecorationPanel.tsx      - ClonerSection: all sliders</code></pre>
+      </section>
+
+      <section>
+        <h2>מחקר ורפרנסים</h2>
+        <div class="research-links">
+          <a href="https://www.maxon.net/en/cinema-4d/mograph" target="_blank" class="research-link">
+            <div><div class="link-type">Reference</div><div class="link-title">Cinema 4D MoGraph</div><div class="link-desc">מערכת ה-motion graphics שלנו מבוססת עליה</div></div>
+          </a>
+          <a href="https://threejs.org/docs/#api/en/objects/InstancedMesh" target="_blank" class="research-link">
+            <div><div class="link-type">Docs</div><div class="link-title">Three.js InstancedMesh</div><div class="link-desc">לביצועים - 1000 instances ב-draw call אחד</div></div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

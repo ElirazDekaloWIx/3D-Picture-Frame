@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב 4: Boolean + Relief - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link active"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב 4: Boolean + Relief</h1>
+        <p class="subtitle">מיזוג מודלים לתוך המסגרת, חיתוך צורות, והמרה לתבליט - הפיכת עיטור ל-geometry ניתנת להדפסה.</p>
+        <span class="version-badge in-progress">20% - שבור</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>שלב 3 מאפשר לשים עיטור <strong>על</strong> המסגרת. שלב 4 מאפשר לשלב אותו <strong>בתוך</strong> המסגרת - כחלק אחד אחיד שניתן להדפסה.</p>
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title">Merge (Union)</div>
+            <p>מיזוג עיטור לתוך ה-rail של המסגרת. שני גופים הופכים לאחד. הפלט watertight - מוכן להדפסה.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Cookie Cutter</div>
+            <p>צורת העיטור נחתכת <strong>החוצה</strong> מהמסגרת. כמו חותך עוגיות - הצללית של המודל חודרת דרך המסגרת.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Bas-Relief</div>
+            <p>מודל תלת-מימדי הופך ל<strong>תבליט שטוח</strong> על משטח המסגרת. כמו מטבע או מדליון.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב 2</strong> - CSG engine (ManifoldAdapter, CSGOperations)</li>
+            <li><strong>שלב 3</strong> - מודלים מיובאים (decoration parts)</li>
+          </ul>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box-title">נותן ל:</div>
+          <ul>
+            <li><strong>שלב 6</strong> - גאומטריה merged מוכנה ל-export כ-STL אחיד</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>3 מצבי עיטור</h2>
+
+        <h3>1. Merge (Boolean Union)</h3>
+        <pre><code>Input:  decoration geometry + frame rail geometry
+Process: CSG union (manifold-3d)
+Output: single merged geometry (watertight)
+Result: decoration becomes part of the rail</code></pre>
+        <p>שני גופים שחופפים הופכים לגוף אחד. הפלט מובטח watertight אם שני הקלטים manifold.</p>
+
+        <h3>2. Cookie Cutter (Boolean Subtract)</h3>
+        <pre><code>Input:  decoration mesh
+Process:
+  1. Project silhouette onto XY plane
+  2. Extrude silhouette through cutDepth
+  3. CSG subtract extrusion from frame rail
+Output: frame with cut-through shape</code></pre>
+        <p>מאפשר ליצור חלונות, דפוסים חתוכים, ו-see-through designs.</p>
+
+        <h3>3. Bas-Relief</h3>
+        <pre><code>Input:  3D mesh + ReliefParams
+Process:
+  1. Render orthographic depth buffer of mesh
+  2. Read depth as heightmap (2D grid)
+  3. Apply Gaussian blur (smoothing)
+  4. Create subdivided plane
+  5. Displace vertices by heightmap × maxDepth
+  6. CSG union displaced plane with frame
+Output: frame with embossed relief</code></pre>
+        <div class="info-box research">
+          <div class="info-box-title">פרמטרים של Bas-Relief</div>
+          <ul>
+            <li><strong>maxDepth</strong> - עומק מקסימלי (0.5-5mm)</li>
+            <li><strong>resolution</strong> - רזולוציית ה-heightmap (64-512)</li>
+            <li><strong>smoothing</strong> - Gaussian blur sigma (0-10)</li>
+            <li><strong>contrast</strong> - הגברת הפרשי גובה (0.5-2.0)</li>
+            <li><strong>invert</strong> - הפוך שקע/בליטה</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>מצב נוכחי ובעיות</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">בעיה קריטית #002</div>
+          <p><strong>Boolean Merge/Cookie Cut נכשלים</strong> - "Empty mesh data". manifold-3d דורש קלט watertight. מודלים מיובאים לא watertight. Fallback ל-three-bvh-csg גם נכשל כשאין חפיפה מספקת.</p>
+        </div>
+
+        <h3>מה קיים בקוד</h3>
+        <ul>
+          <li>DecorationPanel עם כפתורי מצב (Attached/Merged/Relief/Cookie)</li>
+          <li><code>applyMerge()</code> ו-<code>applyCookieCutter()</code> ב-store</li>
+          <li><code>BasReliefGenerator.ts</code> ו-<code>CookieCutterGenerator.ts</code> ב-core/decoration/ (לא מחוברים)</li>
+        </ul>
+
+        <h3>מה שבור</h3>
+        <ul>
+          <li>כל boolean operations נכשלים על מודלים מיובאים</li>
+          <li>Bas-Relief generator לא מחובר ל-UI</li>
+          <li>Cookie Cutter generator לא מחובר ל-UI</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>אפשרויות לפתרון</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>אפשרות</th><th>תיאור</th><th>יתרון</th><th>חיסרון</th></tr>
+            <tr><td>MeshLib WASM</td><td>ספריית mesh repair מלאה</td><td>תיקון אוטומטי של non-manifold</td><td>אין npm package, צריך לבנות</td></tr>
+            <tr><td>Voxelization</td><td>המרה ל-voxels ובחזרה ל-mesh</td><td>תמיד manifold output</td><td>אובדן פרטים, resolution limit</td></tr>
+            <tr><td>Hull wrapping</td><td>עטיפת convex/alpha hull</td><td>פשוט, תמיד manifold</td><td>מאבד concavities</td></tr>
+            <tr><td>הגבלה לprimitives</td><td>boolean רק עם צורות שאנחנו מייצרים</td><td>מובטח manifold</td><td>מגביל את המשתמש</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>קבצים</h2>
+        <pre><code>core/csg/CSGOperations.ts            - Dual-engine boolean ops
+core/decoration/BasReliefGenerator.ts    - Heightmap displacement
+core/decoration/CookieCutterGenerator.ts - Silhouette extrusion
+store/useProjectStore.ts             - applyMerge(), applyCookieCutter()
+ui/panels/DecorationPanel.tsx        - Mode buttons + params</code></pre>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

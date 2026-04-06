@@ -1,22 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architecture - 3D Frame Designer Wiki</title>
+  <title>ארכיטקטורה - 3D Frame Designer Wiki</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* LTR overrides for English page */
-    body { direction: ltr; font-family: var(--font-english); }
-    .sidebar { border-left: none; border-right: 1px solid var(--border-color); right: auto; left: 0; }
-    .main-content { margin-right: 0; margin-left: 260px; }
-    .info-box { border-right: none; border-left: 3px solid; }
-    .info-box.warning { border-color: var(--accent-orange); }
-    .info-box.note { border-color: var(--accent-blue); }
-    ul, ol { padding-right: 0; padding-left: var(--spacing-xl); }
-    .layer-content { padding-right: 0; padding-left: var(--spacing-lg); border-right: none; border-left: 2px solid var(--border-subtle); }
-    @media (max-width: 768px) { .main-content { margin-left: 0; } }
-  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -24,34 +12,34 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
-      <div class="sidebar-subtitle" style="direction: rtl; text-align: right;">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניווט</div>
-        <a href="index.html" class="nav-link" style="direction: rtl;">סקירה כללית</a>
-        <a href="features.html" class="nav-link" style="direction: rtl;">פיצ'רים</a>
-        <a href="guide.html" class="nav-link" style="direction: rtl;">מדריך שימוש</a>
-        <a href="architecture.html" class="nav-link active" style="direction: rtl;">ארכיטקטורה</a>
-        <a href="research.html" class="nav-link" style="direction: rtl;">מחקר טכני</a>
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link active">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
       </div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">ניהול פרויקט</div>
-        <a href="roadmap.html" class="nav-link" style="direction: rtl;">תוכנית עבודה</a>
-        <a href="changelog.html" class="nav-link" style="direction: rtl;">לוג גרסאות</a>
-        <a href="issues.html" class="nav-link" style="direction: rtl;">בעיות ידועות</a>
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
       </div>
 
       <div class="nav-section">
-        <div class="nav-section-title" style="direction: rtl; text-align: right;">שלבי פיתוח</div>
-        <a href="#" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
-        <a href="#" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
-        <a href="#" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
-        <a href="#" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
-        <a href="#" class="nav-link"><span class="phase-num pending">6</span> Export</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
-        <a href="#" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
       </div>
     </aside>
 
@@ -59,13 +47,14 @@
     <div class="main-content">
 
       <div class="page-header">
-        <h1>Architecture</h1>
-        <p class="subtitle">System overview, directory structure, data flow, and key design decisions for the 3D Picture Frame Designer.</p>
+        <h1>ארכיטקטורה</h1>
+        <p class="subtitle">סקירה מערכתית, מבנה תיקיות, זרימת נתונים, והחלטות עיצוב מרכזיות של המערכת.</p>
       </div>
 
       <!-- System Overview -->
       <section>
-        <h2>System Overview</h2>
+        <h2>תרשים מערכת</h2>
+        <p>המערכת בנויה כאפליקציית <span class="ltr">Electron</span> עם הפרדה ברורה בין ה-<span class="ltr">Main Process</span> ל-<span class="ltr">Renderer</span>, וחלוקה פנימית בין <span class="ltr">Core Engine</span> (טייפסקריפט טהור) ל-<span class="ltr">UI</span> (ריאקט).</p>
         <pre><code>┌───────────────────────────────────────────────────────┐
 │                  Electron Main Process                 │
 │   File I/O │ Native Menus │ Window │ Printer Profiles  │
@@ -95,7 +84,7 @@
 
       <!-- Directory Structure -->
       <section>
-        <h2>Directory Structure</h2>
+        <h2>מבנה תיקיות</h2>
         <pre><code>src/
 ├── main/                    Electron main process
 │   └── index.ts             IPC handlers, window, menus
@@ -163,11 +152,21 @@
     └── workers/                 (empty - planned for CSG workers)</code></pre>
       </section>
 
+      <!-- Core Constraint -->
+      <section>
+        <h2>כלל מרכזי</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">הפרדת שכבות קריטית</div>
+          <p>תיקיית <code>core/</code> <strong>אסור לה לייבא React, R3F, או כל קוד UI</strong>. היא עובדת רק עם טייפסקריפט טהור ומתמטיקה של <span class="ltr">Three.js</span>. זה מאפשר הרצת טסטים ללא <span class="ltr">DOM</span> והרצה ב-<span class="ltr">Web Workers</span>.</p>
+        </div>
+      </section>
+
       <!-- Data Flow -->
       <section>
-        <h2>Data Flow</h2>
+        <h2>זרימת נתונים</h2>
 
-        <h3>Frame Generation</h3>
+        <h3>יצירת מסגרת</h3>
+        <p>כל שינוי במידות, פרופיל, או צורת מסגרת מפעיל את שרשרת הייצור מחדש:</p>
         <pre><code>User changes dimension/profile/path
         │
         ▼
@@ -193,7 +192,7 @@ FrameScene (inside Canvas)
   - Renders symmetry mirror ghosts
   - Renders cloner instances</code></pre>
 
-        <h3>Cloner Data Flow</h3>
+        <h3>זרימת Cloner</h3>
         <pre><code>User adjusts slider in DecorationPanel
         │
         ▼
@@ -212,28 +211,50 @@ Render: cloneMatrices.map((matrix, i) =&gt;
 
       <!-- Key Design Decisions -->
       <section>
-        <h2>Key Design Decisions</h2>
+        <h2>החלטות עיצוב מרכזיות</h2>
         <div class="table-wrapper">
           <table>
-            <tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr>
-            <tr><td>CSG engine</td><td>manifold-3d + three-bvh-csg</td><td>Manifold guarantees watertight. BVH handles non-manifold input as fallback.</td></tr>
-            <tr><td>State management</td><td>Zustand + Immer</td><td>Standard for R3F apps. No Provider wrapper. Works outside Canvas.</td></tr>
-            <tr><td>Rendering</td><td>Matcap (no lights)</td><td>Reliable in Electron. No HDRI dependency. No flickering.</td></tr>
-            <tr><td>Frame loop</td><td>demand</td><td>Renders only when invalidate() called. Prevents flickering.</td></tr>
-            <tr><td>Frame construction</td><td>Beam + miter cut</td><td>Matches real-world frame making. Clean corners.</td></tr>
-            <tr><td>Profile storage</td><td>Normalized 0-1 points</td><td>Scale-independent. Works with any frame width/depth.</td></tr>
-            <tr><td>Cloner</td><td>Live rendering, no bake</td><td>Like C4D MoGraph. Instant feedback. Bake as future option.</td></tr>
-            <tr><td>Inline styles</td><td>All CSS inline</td><td>Tailwind CSS didn't load in Electron. Inline is reliable.</td></tr>
+            <tr><th>החלטה</th><th>בחירה</th><th>הסיבה</th></tr>
+            <tr><td>CSG engine</td><td>manifold-3d + three-bvh-csg</td><td>Manifold מבטיח watertight. BVH מטפל ב-non-manifold כ-fallback.</td></tr>
+            <tr><td>State management</td><td>Zustand + Immer</td><td>סטנדרטי לאפליקציות R3F. אין צורך ב-Provider. עובד מחוץ ל-Canvas.</td></tr>
+            <tr><td>רנדור</td><td>Matcap (ללא אורות)</td><td>אמין ב-Electron. לא תלוי HDRI. ללא ריצוד.</td></tr>
+            <tr><td>Frame loop</td><td>demand</td><td>רנדור רק כש-invalidate() נקרא. מונע ריצוד.</td></tr>
+            <tr><td>בניית מסגרת</td><td>Beam + miter cut</td><td>כמו בניית מסגרות אמיתית. פינות נקיות.</td></tr>
+            <tr><td>אחסון פרופיל</td><td>נקודות מנורמלות 0-1</td><td>בלתי תלוי בגודל. עובד עם כל רוחב/עומק.</td></tr>
+            <tr><td>Cloner</td><td>רנדור חי, ללא bake</td><td>כמו C4D MoGraph. פידבק מיידי. Bake כאופציה עתידית.</td></tr>
+            <tr><td>סגנונות</td><td>כל ה-CSS inline</td><td>Tailwind CSS לא נטען ב-Electron. Inline אמין.</td></tr>
           </table>
         </div>
       </section>
 
-      <!-- Core Constraint -->
+      <!-- Stores -->
       <section>
-        <h2>Core Constraint</h2>
-        <div class="info-box warning">
-          <div class="info-box-title">Critical Rule</div>
-          <p><strong>core/ directory must NEVER import React, R3F, or any UI code.</strong> It operates on plain TypeScript types and Three.js math/geometry only. This enables testing without DOM and running in Web Workers.</p>
+        <h2>מאגרי מצב (Stores)</h2>
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title" dir="ltr">useProjectStore</div>
+            <p>מאגר מרכזי - חלקים, מידות, פרופיל, מטמון גאומטריה, הגדרות מדפסת. מכיל את כל ה-CRUD של ה-Part Tree.</p>
+          </div>
+          <div class="card">
+            <div class="card-title" dir="ltr">useSelectionStore</div>
+            <p>מצב בחירה - חלקים נבחרים, hover. מנותק מ-Project Store למניעת re-renders מיותרים.</p>
+          </div>
+          <div class="card">
+            <div class="card-title" dir="ltr">useToolStore</div>
+            <p>כלי פעיל, toggles (wireframe, grid, build volume). שולט על מצב ה-viewport.</p>
+          </div>
+          <div class="card">
+            <div class="card-title" dir="ltr">useRenderStore</div>
+            <p>מצב רנדור - mode (matcap/pathtracer), הגדרות חומר, סביבה.</p>
+          </div>
+          <div class="card">
+            <div class="card-title" dir="ltr">useClonerStore</div>
+            <p>פרמטרים של ה-Cloner - כמות, offset, סיבוב, scale, step effectors, random effectors.</p>
+          </div>
+          <div class="card">
+            <div class="card-title" dir="ltr">useFrameInit</div>
+            <p>Hook שמאזין לשינויים בכל ה-state שמשפיע על המסגרת ומפעיל ייצור מחדש דרך JSON hash.</p>
+          </div>
         </div>
       </section>
 

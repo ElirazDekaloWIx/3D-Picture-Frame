@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שלב 5: Rendering - 3D Frame Designer Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
+      <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניווט</div>
+        <a href="index.html" class="nav-link">סקירה כללית</a>
+        <a href="features.html" class="nav-link">פיצ'רים</a>
+        <a href="guide.html" class="nav-link">מדריך שימוש</a>
+        <a href="architecture.html" class="nav-link">ארכיטקטורה</a>
+        <a href="research.html" class="nav-link">מחקר טכני</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">ניהול פרויקט</div>
+        <a href="roadmap.html" class="nav-link">תוכנית עבודה</a>
+        <a href="changelog.html" class="nav-link">לוג גרסאות</a>
+        <a href="issues.html" class="nav-link">בעיות ידועות</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">שלבי פיתוח</div>
+        <a href="phase1.html" class="nav-link"><span class="phase-num completed">1</span> Foundation</a>
+        <a href="phase2.html" class="nav-link"><span class="phase-num in-progress">2</span> Split + Connectors</a>
+        <a href="phase3.html" class="nav-link"><span class="phase-num completed">3</span> Import + Placement</a>
+        <a href="phase4.html" class="nav-link"><span class="phase-num in-progress">4</span> Boolean + Relief</a>
+        <a href="phase5.html" class="nav-link active"><span class="phase-num pending">5</span> Rendering</a>
+        <a href="phase6.html" class="nav-link"><span class="phase-num pending">6</span> Export</a>
+        <a href="phase-spline.html" class="nav-link"><span class="phase-num completed">S</span> Spline Frames</a>
+        <a href="phase-cloner.html" class="nav-link"><span class="phase-num completed">C</span> Cloner</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+
+      <div class="page-header">
+        <h1>שלב 5: Rendering</h1>
+        <p class="subtitle">ספריית חומרים מציאותיים, סביבות HDRI, Path Tracer לרנדור פוטוריאליסטי, ושמירת renders.</p>
+        <span class="version-badge pending">טרם התחיל</span>
+      </div>
+
+      <section>
+        <h2>מהות השלב</h2>
+        <p>כרגע המערכת מציגה רנדור <span class="ltr">Matcap Clay</span> - טוב לעריכה, אבל לא מראה איך המסגרת <strong>באמת תיראה</strong> אחרי ההדפסה. שלב 5 מוסיף:</p>
+        <div class="phases-grid">
+          <div class="card">
+            <div class="card-title">Material Library</div>
+            <p>חומרי PBR שמדמים פילמנטים אמיתיים - PLA, Wood PLA, Silk PLA, Marble PLA, Carbon Fiber, TPU. כל אחד עם צבע, roughness, metalness, ו-texture.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">HDRI Environments</div>
+            <p>סביבות תאורה טבעיות - סטודיו, חוץ, סדנה. HDRI מספק reflections ותאורה מציאותית.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Path Tracer</div>
+            <p>רנדור <span class="ltr">ray-traced</span> פרוגרסיבי עם <span class="ltr">three-gpu-pathtracer</span>. תאורה גלובלית, צללים רכים, caustics.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Render Capture</div>
+            <p>שמירת תמונות ברזולוציה גבוהה - PNG/JPEG. לשיווק, להצגה ללקוחות, או לפורטפוליו.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>תלויות</h2>
+        <div class="info-box note">
+          <div class="info-box-title">תלוי ב:</div>
+          <ul>
+            <li><strong>שלב 1</strong> - Viewport, PartMesh, FrameScene</li>
+          </ul>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box-title">עצמאי מ:</div>
+          <ul>
+            <li>שלבים 2-4 - אפשר להתקדם במקביל לתיקון CSG</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>מה השלב נותן</h2>
+        <ul>
+          <li><strong>תצוגה מקדימה מציאותית</strong> - לראות איך המסגרת תיראה בפועל</li>
+          <li><strong>בחירת חומר</strong> - PLA רגיל, עץ, משי, שיש, קרבון</li>
+          <li><strong>תאורה טבעית</strong> - סביבות HDRI שונות</li>
+          <li><strong>תמונות שיווקיות</strong> - renders ברזולוציה גבוהה</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>גישות אפשריות</h2>
+
+        <h3>אפשרות A: PBR + HDRI (מומלץ כשלב ראשון)</h3>
+        <div class="card">
+          <ul>
+            <li>החלפת Matcap ב-<code>MeshPhysicalMaterial</code></li>
+            <li>טעינת HDRI presets דרך <span class="ltr">drei Environment</span></li>
+            <li>בעיה ידועה: HDRI לפעמים לא נטען ב-Electron &rarr; צריך fallback ל-programmatic environment</li>
+            <li>Toggle בין Matcap (edit mode) ו-PBR (preview mode)</li>
+          </ul>
+        </div>
+
+        <h3>אפשרות B: Path Tracer (שלב מתקדם)</h3>
+        <div class="card">
+          <ul>
+            <li><span class="ltr">three-gpu-pathtracer</span> - progressive render ב-GPU</li>
+            <li>רנדור מתקדם: GI, soft shadows, SSS, caustics</li>
+            <li>איטי יותר - Progressive (מתחיל מרועש, מתבהר עם הזמן)</li>
+            <li>Lazy-load (ספרייה גדולה)</li>
+            <li>Toggle button ב-Toolbar (כבר קיים, לא מחובר)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>ספריית חומרים מתוכננת</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>חומר</th><th>צבע</th><th>Roughness</th><th>Metalness</th><th>הערות</th></tr>
+            <tr><td>PLA Standard</td><td>לבן/שחור/אפור</td><td>0.5</td><td>0</td><td>הכי נפוץ</td></tr>
+            <tr><td>Wood PLA</td><td>חום עץ</td><td>0.8</td><td>0</td><td>+ bump texture לתחושת עץ</td></tr>
+            <tr><td>Silk PLA</td><td>זהב/כסף/נחושת</td><td>0.2</td><td>0.6</td><td>ברק מתכתי</td></tr>
+            <tr><td>Marble PLA</td><td>לבן עם וינות</td><td>0.3</td><td>0.05</td><td>+ noise texture</td></tr>
+            <tr><td>Carbon Fiber</td><td>שחור</td><td>0.4</td><td>0.1</td><td>+ pattern texture</td></tr>
+            <tr><td>TPU Flexible</td><td>שקוף/צבעוני</td><td>0.6</td><td>0</td><td>transmission for translucency</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>מחקר ורפרנסים</h2>
+        <div class="research-links">
+          <a href="https://github.com/gkjohnson/three-gpu-pathtracer" target="_blank" class="research-link">
+            <div><div class="link-type">Library</div><div class="link-title">three-gpu-pathtracer</div><div class="link-desc">Path tracer מבוסס GPU ל-Three.js</div></div>
+          </a>
+          <a href="https://polyhaven.com/hdris" target="_blank" class="research-link">
+            <div><div class="link-type">Assets</div><div class="link-title">Poly Haven HDRIs</div><div class="link-desc">HDRIs חינמיים באיכות גבוהה</div></div>
+          </a>
+          <a href="https://threejs.org/docs/#api/en/materials/MeshPhysicalMaterial" target="_blank" class="research-link">
+            <div><div class="link-type">Docs</div><div class="link-title">Three.js MeshPhysicalMaterial</div><div class="link-desc">חומר PBR מתקדם עם clearcoat, transmission, SSS</div></div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
