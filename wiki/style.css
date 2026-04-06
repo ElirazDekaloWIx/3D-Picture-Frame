@@ -387,6 +387,34 @@ li {
   text-align: left;
 }
 
+/* English content pages: keeps RTL layout (sidebar right) but text flows LTR */
+.english-content {
+  font-family: var(--font-english);
+}
+
+.english-content h1, .english-content h2, .english-content h3, .english-content h4,
+.english-content p, .english-content li, .english-content .subtitle,
+.english-content .card-title, .english-content .info-box-title,
+.english-content .info-box p, .english-content .card p {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+}
+
+.english-content ul, .english-content ol {
+  padding-right: 0;
+  padding-left: var(--spacing-xl);
+}
+
+.english-content .info-box {
+  border-right: none;
+  border-left: 3px solid;
+}
+.english-content .info-box.tip { border-color: var(--accent-green); }
+.english-content .info-box.note { border-color: var(--accent-blue); }
+.english-content .info-box.warning { border-color: var(--accent-orange); }
+.english-content .info-box.research { border-color: var(--accent-purple); }
+
 
 .tech-term {
   color: var(--accent-teal);
