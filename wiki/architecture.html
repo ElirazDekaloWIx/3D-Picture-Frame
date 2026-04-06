@@ -9,7 +9,7 @@
 <body>
   <div class="page-wrapper">
 
-    <!-- Sidebar (Hebrew RTL - same as all pages) -->
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
       <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
@@ -43,8 +43,10 @@
       </div>
     </aside>
 
-    <!-- Main Content (English LTR - technical content) -->
-    <div class="main-content ltr-block">
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- English content wrapper -->
+      <div dir="ltr" style="direction: ltr; text-align: left; font-family: var(--font-english);">
 
       <div class="page-header">
         <h1>Architecture</h1>
@@ -219,7 +221,7 @@ Render: cloneMatrices.map((matrix, i) =&gt;
       <!-- Core Constraint -->
       <section>
         <h2>Core Constraint</h2>
-        <div class="info-box warning">
+        <div class="info-box warning" style="border-right: none; border-left: 3px solid var(--accent-orange);">
           <div class="info-box-title">Critical Rule</div>
           <p><strong>core/ directory must NEVER import React, R3F, or any UI code.</strong> It operates on plain TypeScript types and Three.js math/geometry only. This enables testing without DOM and running in Web Workers.</p>
         </div>
@@ -256,6 +258,7 @@ Render: cloneMatrices.map((matrix, i) =&gt;
         </div>
       </section>
 
+      </div><!-- end English wrapper -->
     </div>
   </div>
 </body>

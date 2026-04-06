@@ -9,7 +9,7 @@
 <body>
   <div class="page-wrapper">
 
-    <!-- Sidebar (Hebrew RTL - same as all pages) -->
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
       <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
@@ -43,8 +43,10 @@
       </div>
     </aside>
 
-    <!-- Main Content (English LTR - technical content) -->
-    <div class="main-content ltr-block">
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- English content wrapper -->
+      <div dir="ltr" style="direction: ltr; text-align: left; font-family: var(--font-english);">
 
       <div class="page-header">
         <h1>Research &amp; Technical Notes</h1>
@@ -83,7 +85,7 @@ manifold.subtract(other)                    <span class="cm">// boolean subtract
 manifold.<span class="fn">status</span>()  <span class="cm">// returns "NoError" (string), not 0 (number)</span></code></pre>
 
           <h4>Key Findings</h4>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li><code>setup()</code> returns empty object - no Mesh class available</li>
             <li>WASM file must be served with correct MIME type - copied to <code>public/manifold.wasm</code></li>
             <li><code>locateFile</code> callback needed for Vite dev mode</li>
@@ -107,7 +109,7 @@ manifold.<span class="fn">status</span>()  <span class="cm">// returns "NoError"
           </div>
 
           <h4>Repair Options Researched</h4>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li><strong>MeshLib (meshlib.io)</strong> - C++ with WASM support. Full repair pipeline. No npm package - must build from source.</li>
             <li><strong>meshoptimizer</strong> - Optimization only, not repair.</li>
             <li><strong>opencascade.js</strong> - BREP healing, not mesh level. 20MB+ WASM.</li>
@@ -126,7 +128,7 @@ Tier 2: three-bvh-csg (fallback)
   - Output not guaranteed watertight
   - Show warning to user</code></pre>
 
-          <div class="info-box warning">
+          <div class="info-box warning" style="border-right: none; border-left: 3px solid var(--accent-orange);">
             <div class="info-box-title">Key Insight</div>
             <p>For programmatic geometry, a manifold failure is a bug in our generator, not a repair problem. The merge() call handles the vertex-duplication mismatch between Three.js rendering format and manifold topology.</p>
           </div>
@@ -156,7 +158,7 @@ Tier 2: three-bvh-csg (fallback)
           </div>
 
           <h4>Matcap Implementation</h4>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li>Procedurally generated 512x512 canvas texture</li>
             <li>Studio lighting baked in: key light, fill, rim, specular, Fresnel</li>
             <li>Two matcaps: clay (default) and selected (blue)</li>
@@ -209,7 +211,7 @@ vertex.y = base.y + outward.y * widthOffset + beamDir.y * (miterShift + overlap)
 // overlap = 0.1mm to prevent Z-fighting gaps at joints
 // No cap faces needed - beams overlap at joints</code></pre>
 
-          <div class="info-box note">
+          <div class="info-box note" style="border-right: none; border-left: 3px solid var(--accent-blue);">
             <div class="info-box-title">Winding Order</div>
             <p>Rectangle path and polygon path must use the same winding (CCW). Different winding causes outward direction to flip, breaking miter cuts.</p>
           </div>
@@ -230,7 +232,7 @@ Outward = perpendicular to tangent in XY plane
   Ensure outward points away from path center</code></pre>
 
           <h4>CatmullRom vs LineCurve</h4>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li><strong>Smooth paths</strong> (circle, ellipse, freehand): <code>CatmullRomCurve3</code> with tension 0.5</li>
             <li><strong>Sharp paths</strong> (polygon): Direct vertex placement per edge, no curve interpolation</li>
           </ul>
@@ -270,7 +272,7 @@ Outward = perpendicular to tangent in XY plane
 
         <div class="card">
           <div class="card-title">Key Gotchas</div>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li><code>ExtrudeGeometry</code> always extrudes along Z axis. Must rotate after creation for other orientations.</li>
             <li><code>computeVertexNormals()</code> averages normals across shared vertices in index buffer. For sharp edges, need separate vertices (use <code>toNonIndexed()</code>).</li>
             <li><code>mergeVertices(geo, tolerance)</code> from BufferGeometryUtils merges by ALL attributes, not just position. This is fine for manifold conversion.</li>
@@ -283,7 +285,7 @@ Outward = perpendicular to tangent in XY plane
 
         <div class="card">
           <div class="card-title">Performance Considerations</div>
-          <ul>
+          <ul style="padding-right: 0; padding-left: var(--spacing-xl);">
             <li><strong>frameloop="demand"</strong> - most important optimization. Reduces GPU usage from 100% to near 0% when idle.</li>
             <li><strong>Matcap textures</strong> - built once at module level (<code>const CLAY_MATCAP = buildMatcap()</code>). Never rebuilt.</li>
             <li><strong>useMemo for materials</strong> - prevents material recreation on every render.</li>
@@ -330,6 +332,7 @@ Outward = perpendicular to tangent in XY plane
         </div>
       </section>
 
+      </div><!-- end English wrapper -->
     </div>
   </div>
 </body>
