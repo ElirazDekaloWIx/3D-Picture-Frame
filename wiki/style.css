@@ -387,6 +387,34 @@ li {
   text-align: left;
 }
 
+/* When main-content is LTR (English pages), flip RTL-specific styles */
+.main-content.ltr-block {
+  font-family: var(--font-english);
+}
+
+.main-content.ltr-block .info-box {
+  border-right: none;
+  border-left: 3px solid;
+}
+
+.main-content.ltr-block .info-box.tip { border-color: var(--accent-green); }
+.main-content.ltr-block .info-box.note { border-color: var(--accent-blue); }
+.main-content.ltr-block .info-box.warning { border-color: var(--accent-orange); }
+.main-content.ltr-block .info-box.research { border-color: var(--accent-purple); }
+
+.main-content.ltr-block ul,
+.main-content.ltr-block ol {
+  padding-right: 0;
+  padding-left: var(--spacing-xl);
+}
+
+.main-content.ltr-block .layer-content {
+  padding-right: 0;
+  padding-left: var(--spacing-lg);
+  border-right: none;
+  border-left: 2px solid var(--border-subtle);
+}
+
 .tech-term {
   color: var(--accent-teal);
   font-family: var(--font-mono);

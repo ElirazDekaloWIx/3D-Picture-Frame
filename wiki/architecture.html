@@ -9,7 +9,7 @@
 <body>
   <div class="page-wrapper">
 
-    <!-- Sidebar -->
+    <!-- Sidebar (Hebrew RTL - same as all pages) -->
     <aside class="sidebar">
       <div class="sidebar-logo"><span class="logo-icon">🖼</span> 3D Frame Designer</div>
       <div class="sidebar-subtitle">מערכת לעיצוב מסגרות תלת-מימדיות להדפסה</div>
@@ -43,18 +43,17 @@
       </div>
     </aside>
 
-    <!-- Main Content -->
-    <div class="main-content">
+    <!-- Main Content (English LTR - technical content) -->
+    <div class="main-content ltr-block">
 
       <div class="page-header">
-        <h1>ארכיטקטורה</h1>
-        <p class="subtitle">סקירה מערכתית, מבנה תיקיות, זרימת נתונים, והחלטות עיצוב מרכזיות של המערכת.</p>
+        <h1>Architecture</h1>
+        <p class="subtitle">System overview, directory structure, data flow, and key design decisions for the 3D Picture Frame Designer.</p>
       </div>
 
       <!-- System Overview -->
       <section>
-        <h2>תרשים מערכת</h2>
-        <p>המערכת בנויה כאפליקציית <span class="ltr">Electron</span> עם הפרדה ברורה בין ה-<span class="ltr">Main Process</span> ל-<span class="ltr">Renderer</span>, וחלוקה פנימית בין <span class="ltr">Core Engine</span> (טייפסקריפט טהור) ל-<span class="ltr">UI</span> (ריאקט).</p>
+        <h2>System Overview</h2>
         <pre><code>┌───────────────────────────────────────────────────────┐
 │                  Electron Main Process                 │
 │   File I/O │ Native Menus │ Window │ Printer Profiles  │
@@ -84,7 +83,7 @@
 
       <!-- Directory Structure -->
       <section>
-        <h2>מבנה תיקיות</h2>
+        <h2>Directory Structure</h2>
         <pre><code>src/
 ├── main/                    Electron main process
 │   └── index.ts             IPC handlers, window, menus
@@ -152,21 +151,11 @@
     └── workers/                 (empty - planned for CSG workers)</code></pre>
       </section>
 
-      <!-- Core Constraint -->
-      <section>
-        <h2>כלל מרכזי</h2>
-        <div class="info-box warning">
-          <div class="info-box-title">הפרדת שכבות קריטית</div>
-          <p>תיקיית <code>core/</code> <strong>אסור לה לייבא React, R3F, או כל קוד UI</strong>. היא עובדת רק עם טייפסקריפט טהור ומתמטיקה של <span class="ltr">Three.js</span>. זה מאפשר הרצת טסטים ללא <span class="ltr">DOM</span> והרצה ב-<span class="ltr">Web Workers</span>.</p>
-        </div>
-      </section>
-
       <!-- Data Flow -->
       <section>
-        <h2>זרימת נתונים</h2>
+        <h2>Data Flow</h2>
 
-        <h3>יצירת מסגרת</h3>
-        <p>כל שינוי במידות, פרופיל, או צורת מסגרת מפעיל את שרשרת הייצור מחדש:</p>
+        <h3>Frame Generation</h3>
         <pre><code>User changes dimension/profile/path
         │
         ▼
@@ -192,7 +181,7 @@ FrameScene (inside Canvas)
   - Renders symmetry mirror ghosts
   - Renders cloner instances</code></pre>
 
-        <h3>זרימת Cloner</h3>
+        <h3>Cloner Data Flow</h3>
         <pre><code>User adjusts slider in DecorationPanel
         │
         ▼
@@ -211,49 +200,58 @@ Render: cloneMatrices.map((matrix, i) =&gt;
 
       <!-- Key Design Decisions -->
       <section>
-        <h2>החלטות עיצוב מרכזיות</h2>
+        <h2>Key Design Decisions</h2>
         <div class="table-wrapper">
           <table>
-            <tr><th>החלטה</th><th>בחירה</th><th>הסיבה</th></tr>
-            <tr><td>CSG engine</td><td>manifold-3d + three-bvh-csg</td><td>Manifold מבטיח watertight. BVH מטפל ב-non-manifold כ-fallback.</td></tr>
-            <tr><td>State management</td><td>Zustand + Immer</td><td>סטנדרטי לאפליקציות R3F. אין צורך ב-Provider. עובד מחוץ ל-Canvas.</td></tr>
-            <tr><td>רנדור</td><td>Matcap (ללא אורות)</td><td>אמין ב-Electron. לא תלוי HDRI. ללא ריצוד.</td></tr>
-            <tr><td>Frame loop</td><td>demand</td><td>רנדור רק כש-invalidate() נקרא. מונע ריצוד.</td></tr>
-            <tr><td>בניית מסגרת</td><td>Beam + miter cut</td><td>כמו בניית מסגרות אמיתית. פינות נקיות.</td></tr>
-            <tr><td>אחסון פרופיל</td><td>נקודות מנורמלות 0-1</td><td>בלתי תלוי בגודל. עובד עם כל רוחב/עומק.</td></tr>
-            <tr><td>Cloner</td><td>רנדור חי, ללא bake</td><td>כמו C4D MoGraph. פידבק מיידי. Bake כאופציה עתידית.</td></tr>
-            <tr><td>סגנונות</td><td>כל ה-CSS inline</td><td>Tailwind CSS לא נטען ב-Electron. Inline אמין.</td></tr>
+            <tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr>
+            <tr><td>CSG engine</td><td>manifold-3d + three-bvh-csg</td><td>Manifold guarantees watertight. BVH handles non-manifold input as fallback.</td></tr>
+            <tr><td>State management</td><td>Zustand + Immer</td><td>Standard for R3F apps. No Provider wrapper. Works outside Canvas.</td></tr>
+            <tr><td>Rendering</td><td>Matcap (no lights)</td><td>Reliable in Electron. No HDRI dependency. No flickering.</td></tr>
+            <tr><td>Frame loop</td><td>demand</td><td>Renders only when invalidate() called. Prevents flickering.</td></tr>
+            <tr><td>Frame construction</td><td>Beam + miter cut</td><td>Matches real-world frame making. Clean corners.</td></tr>
+            <tr><td>Profile storage</td><td>Normalized 0-1 points</td><td>Scale-independent. Works with any frame width/depth.</td></tr>
+            <tr><td>Cloner</td><td>Live rendering, no bake</td><td>Like C4D MoGraph. Instant feedback. Bake as future option.</td></tr>
+            <tr><td>Inline styles</td><td>All CSS inline</td><td>Tailwind CSS didn't load in Electron. Inline is reliable.</td></tr>
           </table>
+        </div>
+      </section>
+
+      <!-- Core Constraint -->
+      <section>
+        <h2>Core Constraint</h2>
+        <div class="info-box warning">
+          <div class="info-box-title">Critical Rule</div>
+          <p><strong>core/ directory must NEVER import React, R3F, or any UI code.</strong> It operates on plain TypeScript types and Three.js math/geometry only. This enables testing without DOM and running in Web Workers.</p>
         </div>
       </section>
 
       <!-- Stores -->
       <section>
-        <h2>מאגרי מצב (Stores)</h2>
+        <h2>Zustand Stores</h2>
         <div class="phases-grid">
           <div class="card">
-            <div class="card-title" dir="ltr">useProjectStore</div>
-            <p>מאגר מרכזי - חלקים, מידות, פרופיל, מטמון גאומטריה, הגדרות מדפסת. מכיל את כל ה-CRUD של ה-Part Tree.</p>
+            <div class="card-title">useProjectStore</div>
+            <p>Central store &mdash; parts, dimensions, profile, geometry cache, printer config. All Part Tree CRUD operations.</p>
           </div>
           <div class="card">
-            <div class="card-title" dir="ltr">useSelectionStore</div>
-            <p>מצב בחירה - חלקים נבחרים, hover. מנותק מ-Project Store למניעת re-renders מיותרים.</p>
+            <div class="card-title">useSelectionStore</div>
+            <p>Selection state &mdash; selected parts, hover. Decoupled from Project Store to prevent unnecessary re-renders.</p>
           </div>
           <div class="card">
-            <div class="card-title" dir="ltr">useToolStore</div>
-            <p>כלי פעיל, toggles (wireframe, grid, build volume). שולט על מצב ה-viewport.</p>
+            <div class="card-title">useToolStore</div>
+            <p>Active tool, toggles (wireframe, grid, build volume). Controls viewport state.</p>
           </div>
           <div class="card">
-            <div class="card-title" dir="ltr">useRenderStore</div>
-            <p>מצב רנדור - mode (matcap/pathtracer), הגדרות חומר, סביבה.</p>
+            <div class="card-title">useRenderStore</div>
+            <p>Render mode &mdash; matcap/pathtracer, material settings, environment.</p>
           </div>
           <div class="card">
-            <div class="card-title" dir="ltr">useClonerStore</div>
-            <p>פרמטרים של ה-Cloner - כמות, offset, סיבוב, scale, step effectors, random effectors.</p>
+            <div class="card-title">useClonerStore</div>
+            <p>Cloner parameters &mdash; count, offset, rotation, scale, step effectors, random effectors.</p>
           </div>
           <div class="card">
-            <div class="card-title" dir="ltr">useFrameInit</div>
-            <p>Hook שמאזין לשינויים בכל ה-state שמשפיע על המסגרת ומפעיל ייצור מחדש דרך JSON hash.</p>
+            <div class="card-title">useFrameInit</div>
+            <p>Hook that watches all frame-affecting state and triggers regeneration via JSON hash comparison.</p>
           </div>
         </div>
       </section>
